@@ -1,0 +1,142 @@
+body{
+margin: 0px;
+padding: 0;
+background-color: #EFE5DC ;
+}
+
+
+     
+.logo{
+    background-color: #602437;
+    display: flex; /* Verwendung von Flexbox für die Ausrichtung */
+  align-items: center; /* Zentrieren der Elemente vertikal */
+}
+
+.headline{
+font-size: 75%;
+}
+h1{
+    color: white;
+}
+.center{
+    display: flex;
+    
+    justify-content: center;
+}
+.muffin_maker{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:    1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+
+    place-items: center;
+   
+    height: 500px;
+}
+
+.muffin{
+    
+    /* border-radius: 5px;				
+    background-color: red;	 */
+    grid-row: 4  ;
+    grid-column: 5 ;        
+
+}
+.muf{
+  height: 500%;
+    width: 500%; 
+   
+}
+
+.image {
+    width: 15%;
+    height: 15%;
+    border-radius: 50%;
+    margin-right: 20px;
+    
+   
+  }
+
+.pfeil-lo,.pfeil-lm,.pfeil-lu,.pfeil-ro,.pfeil-rm,.pfeil-ru{
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;				
+    background-color: #3e55ba;	
+}
+
+.pfeil-lo{
+    grid-row: 3;
+    grid-column: 4;
+}
+.pfeil-lm{
+    grid-row: 4;
+    grid-column: 4;
+}
+
+.pfeil-lu{
+    grid-row:  5;
+    grid-column: 4 ;
+
+}
+.pfeil-ro{
+    grid-row:  3;
+    grid-column: 10 ;
+
+}
+.pfeil-rm{
+    grid-row:  4;
+    grid-column: 10 ;
+
+}
+.pfeil-ru{
+    grid-row:  5   ;
+    grid-column: 10 ;
+
+}
+
+
+
+h3{
+
+
+border: 8px solid rgb(128, 0, 119);
+padding: 5px;
+width:fit-content;
+
+
+}
+
+nav{
+    text-align: center;
+
+}
+
+.navbar ul{
+    list-style-type: none;
+    background-color: hsl(0, 1%, 25%);
+    padding: 0px;
+    margin: 0px ;
+    overflow: hidden;
+    display: inline-block;
+    
+
+}
+
+.navbar a{
+color: white;
+text-decoration: none;
+padding: 15px;
+display: block;
+
+}
+
+.navbar a:hover{
+background-color: aliceblue;
+color: black;
+
+}
+
+.navbar li{
+float: left;
+
+   
+}
