@@ -18,6 +18,9 @@ const users = {};
 
 app.post('/register', (req, res) => {
     const username = req.body.username.toLowerCase();
+    if(req.body.password != req.body.password2){
+        return res.send("Passwörter stimmen nicht überein");
+    }
     const { password } = req.body;
     if (users[username]) {
         return res.send('Benutzername bereits vergeben.');
