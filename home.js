@@ -1,19 +1,38 @@
-function printMessage(){
-   const muffin = document.querySelector('.muffin');
-   muffin.style.backgroundColor = '#ffac09';
-   muffin.style.boxShadow = '0 0 40px #ffac09';
-   muffin.style.transition = '2.5s ease';
+let i = 0;	// Start Point
+let images = [];	// Images Array
+const testFolder = 'Bilder/Muffin/';
+const fs = require('fs');
+
+
+function getbilder() {
+   let e = 0;
+
+
+   fs.readdirSync(testFolder).forEach(
+      myFunction
+
+   );
+
+   function myFunction(item) {
+      images[e] = item;
+      e++;
+      console.log(images[e]); 
+   }
 
 }
 
-var i = 0; 			// Start Point
-var images = [];	// Images Array
-var time = 3000;	// Time Between Switch
 
-function toppingright(){
+function toppingright() {
 
 
-   document.slide.src = images[0];
+   if (i > 1) {
+      i = 0;
+   }
+
+   document.getElementById("muf").src = images[i];
+   i++;
+
+
 }
 
-   
+addEventListener("DOMContentLoaded", (event) => { getbilder(); });
