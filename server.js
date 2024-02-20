@@ -22,6 +22,9 @@ app.post('/register', (req, res) => {
     if (users[username]) {
         return res.send('Benutzername bereits vergeben.');
     }
+    if(req.body.password != req.body.password2){
+        return res.send("Passwörter stimmen nicht überein");
+    }
     users[username] = { password };
     fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
     res.send('Registrierung erfolgreich!');
