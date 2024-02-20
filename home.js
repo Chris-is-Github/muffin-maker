@@ -1,7 +1,7 @@
 let i = 0;	// Start Point
 let images = [];	// Images Array
 const testFolder = 'Bilder/Muffin/';
-const fs = require('fs');
+
 
 
 function getbilder() {

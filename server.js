@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/public', express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/home.html');
 });
