@@ -12,8 +12,6 @@ var time = 3000;	// Time Between Switch
 
 function toppingright(){
 
-   images[0] = bilder/PENUP_20240123_184918.jpg; 
-   iamges[1] = bilder/PENUP_20240123_184931.jpg;
 
    document.slide.src = images[0];
 }
