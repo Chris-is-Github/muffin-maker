@@ -5,9 +5,9 @@ const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use('/public', express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/login.html');
+    res.sendFile(__dirname + '/home.html');
 });
 
 app.listen(PORT, () => {
