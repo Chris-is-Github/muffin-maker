@@ -1,49 +1,58 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Muffin-Maker</title>
+    <link rel="Stylesheet" href="style.css">
 </head>
+
 <body>
-    <!DOCTYPE html>
-<html>
-<head>
-    <title>Registrierung und Einloggen</title>
-</head>
-<body>
+    <nav id="nav-bar">
+        <div class="nav-home">
+            <a class="logo-wrap" href="home.html"></a>
+        </div>
+        <a class="nav-link" href="meineMuffins.html" style="margin-left: 25px;">Meine Muffins</a>
+        <a class="nav-link" href="muffinDW.html">Muffin der Woche</a>
+        <a class="nav-login" href="login.html">Login</a>
+    </nav>
+    <main class="content">
+        <div class="form-container">
+            <h2>Registrierung</h2>
+            <form action="/register" method="post" class="form-box">
+                <div>
+                    <label for="reg-username">Benutzername:</label>
+                    <input type="text" id="reg-username" name="username" required>
+                </div>
+                <div>
+                    <label for="reg-password">Passwort:</label>
+                    <input type="password" id="reg-password-1" name="password" required>
+                </div>
+                <div>
+                    <label for="reg-password">Passwort Wiederholen:</label>
+                    <input type="password" id="reg-password-2" name="password2" required>
+                </div>
+                <button type="submit">Registrieren</button>
+            </form>
+        </div>
 
-    <h2>Registrierung</h2>
-    <form action="/register" method="post">
-        <div>
-            <label for="reg-username">Benutzername:</label>
-            <input type="text" id="reg-username" name="username" required>
+        <div class="form-container">
+            <h2>Einloggen</h2>
+            <form action="/login" method="post" class="form-box">
+                <div>
+                    <label for="login-username">Benutzername:</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div>
+                    <label for="login-password">Passwort:</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit">Einloggen</button>
+            </form>
         </div>
-        <div>
-            <label for="reg-password">Passwort:</label>
-            <input type="password" id="reg-password-1" name="password" required>
-        </div>
-        <div>
-            <label for="reg-password">Passwort Wiederholen:</label>
-            <input type="password" id="reg-password-2" name="password2" required>
-        </div>
-        <button type="submit">Registrieren</button>
-    </form>
-    <h2>Einloggen</h2>
-    <form action="/login" method="post">
-        <div>
-            <label for="login-username">Benutzername:</label>
-            <input type="text" id="login-username" name="username" required>
-        </div>
-        <div>
-            <label for="login-password">Passwort:</label>
-            <input type="password" id="login-password" name="password" required>
-        </div>
-        <button type="submit">Einloggen</button>
-    </form>
 
+    </main>
 </body>
-</html>
 
-</body>
 </html>

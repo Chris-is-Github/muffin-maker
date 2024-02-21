@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'Pacifico';
+    src: url('fonts/Pacifico-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Merienda';
+    src: url('fonts/Merienda-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #EFE5DC;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-bar {
+    height: 10vh;
+    background-color: #252422;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#nav-bar a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin-left: 5px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'Merienda', cursive;
+}
+
+#nav-bar .nav-home {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #602437;
+    flex-basis: 30%;
+    height: 100%;
+}
+
+.logo-wrap {
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+    background-image: url('Bilder/Logo/logotest.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-size 0.3s ease-in-out;
+}
+
+.logo-wrap:hover {
+    background-size: 100%;
+}
+
+#nav-bar .nav-login {
+    margin-left: 33%;
+}
+
+#nav-bar a:hover,
+#nav-bar a:focus {
+    background-color: #602437;
+    border-radius: 15px;
+}
+
+
+
+/* Login/Register / TBD */
+
+.form-container {
+    width: 80%;
+    max-width: 400px;
+    margin: 100px auto;
+    margin-bottom: 100px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #FFFFFF;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #602437;
+    color: white;
+    cursor: pointer;
+    font-family: 'Merienda', cursive;
+}
+
+button:hover {
+    background-color: #402437;
+}
