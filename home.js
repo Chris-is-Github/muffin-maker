@@ -1,25 +1,6 @@
 let i = 0;	// Start Point
-let images = [];	// Images Array
-const testFolder = 'Bilder/Muffin/';
 
 
-
-function getbilder() {
-   let e = 0;
-
-
-   fs.readdirSync(testFolder).forEach(
-      myFunction
-
-   );
-
-   function myFunction(item) {
-      images[e] = item;
-      e++;
-      console.log(images[e]); 
-   }
-
-}
 
 
 function toppingright() {
