@@ -129,10 +129,8 @@ function getNamesFromFiles(folder, prefix) {
             users[username].muffins = {};
         }
 
-        // Ermittle die Anzahl der bisherigen Muffins für den Benutzer
         const numOfMuffins = Object.keys(users[username].muffins).length;
 
-        // Generiere den nächsten Muffin-Namen (muffin1, muffin2, ...)
         const muffinName = `muffin${numOfMuffins + 1}`;
 
         users[username].muffins[muffinName] = { icing, topping, muffinBase };

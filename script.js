@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 localStorage.setItem('loggedInUser', username);
                 showAlert('Erfolgreich eingeloggt! Sie werden jetzt zur Homepage weitergeleitet.');
-                setTimeout(() => { window.location.href = '/home.html'; }, 3000); // Warten Sie 3 Sekunden, bevor Sie zur Homepage navigieren
+                setTimeout(() => { window.location.href = '/home.html'; }, 3000);
             } else {
                 showAlert('Login fehlgeschlagen: ' + data.message);
             }
