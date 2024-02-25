@@ -71,3 +71,19 @@ addEventListener("DOMContentLoaded", (event) => {
    });
 
  });
+
+
+
+ // muffin Speichern (noch nicht getestet)
+
+/*  const requestOptions = {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ icing, topping, muffinBase }),
+  credentials: 'include' 
+};
+
+fetch('/addMuffin', requestOptions)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Fehler beim Hinzufügen des Muffins:', error)); */

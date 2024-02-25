@@ -17,7 +17,7 @@ function showAlert(message) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    //Registrierung
+    // Registrierung
     const registrationForm = document.querySelector('.form-box[action="/register"]');
 
     registrationForm.addEventListener('submit', function(event) {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password2 = document.getElementById('reg-password-2').value;
 
         if (password !== password2) {
-            alert('Die Passwörter stimmen nicht überein.');
+            showAlert('Die Passwörter stimmen nicht überein.');
             return;
         }
 
@@ -45,19 +45,17 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert('Registrierung erfolgreich. Sie können sich jetzt einloggen.');
-                window.location.href = '/login.html';
+                showAlert('Registrierung erfolgreich. Sie werden jetzt zur Homepage weitergeleitet.');
+                setTimeout(() => { window.location.href = '/home.html'; }, 3000);
             } else {
-                alert('Registrierung fehlgeschlagen: ' + data.message);
+                showAlert('Registrierung fehlgeschlagen: ' + data.message);
             }
         })
         .catch(error => {
             console.error('Fehler bei der Registrierung:', error);
-            alert('Fehler bei der Registrierung.');
+            showAlert('Fehler bei der Registrierung.');
         });
     });
-
-
 
     // Login
     const loginForm = document.querySelector('.form-box[action="/login"]');
@@ -81,47 +79,16 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-
                 localStorage.setItem('loggedInUser', username);
-
-                window.location.href = '/home.html';
-
-                saveUserData(username);
+                showAlert('Erfolgreich eingeloggt! Sie werden jetzt zur Homepage weitergeleitet.');
+                setTimeout(() => { window.location.href = '/home.html'; }, 3000); // Warten Sie 3 Sekunden, bevor Sie zur Homepage navigieren
             } else {
-
-                alert('Login fehlgeschlagen: ' + data.message);
+                showAlert('Login fehlgeschlagen: ' + data.message);
             }
         })
         .catch(error => {
             console.error('Fehler bei der Anmeldung:', error);
-            alert('Fehler bei der Anmeldung.');
+            showAlert('Fehler bei der Anmeldung.');
         });
     });
-
-
-
-    //Speichern (noch nicht in verwendung)
-    function saveUserData(username) {
-        fetch('/saveUserData', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: username,
-                // Daten
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                console.log('Benutzerdaten erfolgreich gespeichert');
-            } else {
-                console.error('Fehler beim Speichern der Benutzerdaten');
-            }
-        })
-        .catch(error => {
-            console.error('Fehler beim Speichern der Benutzerdaten:', error);
-        });
-    }
 });

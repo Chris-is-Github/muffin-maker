@@ -3,10 +3,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const session = require('express-session');
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use('/', express.static(__dirname + '/'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/home.html');
@@ -16,6 +18,12 @@ app.listen(PORT, () => {
     console.log(`Server läuft auf Port ${PORT}`);
 });
 
+app.use(session({
+  secret: 'muffinMaker123',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 
 //Login//Registrierung
 let users = {};
@@ -27,24 +35,28 @@ try {
 }
 
 app.post('/register', (req, res) => {
-    const username = req.body.username.toLowerCase();
-    const { password } = req.body;
+    const username = req.body.username;
+    const password = req.body.password;
     if (users[username]) {
         return res.json({ success: false, message: 'Benutzername bereits vergeben.' });
     }
 
     users[username] = { password };
     fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
+    req.session.loggedin = true;
+    req.session.username = username;
     res.json({ success: true, message: 'Registrierung erfolgreich!' });
 });
 
 app.post('/login', (req, res) => {
-    const username = req.body.username.toLowerCase();
-    const { password } = req.body;
+    const username = req.body.username;
+    const password = req.body.password;
     if (!users[username] || users[username].password !== password) {
         return res.json({ success: false, message: 'Benutzername oder Passwort ungültig.' });
     }
 
+    req.session.loggedin = true;
+    req.session.username = username;
     res.json({ success: true, message: 'Erfolgreich eingeloggt!', username: username });
 });
 
@@ -106,3 +118,29 @@ function getNamesFromFiles(folder, prefix) {
       res.status(500).send(error.toString());
     }
   });
+
+  //Meine Muffins Speichern
+  app.post('/addMuffin', (req, res) => {
+    if (req.session.loggedin) {
+        const { icing, topping, muffinBase } = req.body;
+        const username = req.session.username;
+
+        if (!users[username].muffins) {
+            users[username].muffins = {};
+        }
+
+        // Ermittle die Anzahl der bisherigen Muffins für den Benutzer
+        const numOfMuffins = Object.keys(users[username].muffins).length;
+
+        // Generiere den nächsten Muffin-Namen (muffin1, muffin2, ...)
+        const muffinName = `muffin${numOfMuffins + 1}`;
+
+        users[username].muffins[muffinName] = { icing, topping, muffinBase };
+
+        fs.writeFileSync('./users.json', JSON.stringify(users, null, 2)); // Daten speichern
+
+        res.json({ success: true, message: 'Muffin-Daten hinzugefügt/aktualisiert.' });
+    } else {
+        res.json({ success: false, message: 'Nicht eingeloggt.' });
+    }
+});
