@@ -1,9 +1,7 @@
-let i = 0;	// Start Point
+let i = 0;
 
 
 
-<<<<<<< HEAD
-=======
 function getbilder() {
    let e = 0;
 
@@ -15,7 +13,6 @@ function getbilder() {
 
 }
 
->>>>>>> 6d04592 (Changed alot)
 
 function toppingright() {
 
@@ -34,12 +31,12 @@ addEventListener("DOMContentLoaded", (event) => {
    fetch('/muffins')
    .then(response => {
      if (!response.ok) {
-       throw new Error('Netzwerkantwort war nicht ok');
+       throw new Error('Netzwerkantwort nicht ok');
      }
      return response.json();
    })
    .then(data => {
-     console.log(data); // Hier kannst du mit den Daten arbeiten, z.B. sie auf deiner Webseite anzeigen
+     console.log(data);
    })
    .catch(error => {
      console.error('Fehler beim Fetchen der Muffin-Daten:', error);
