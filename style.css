@@ -36,7 +36,7 @@ body {
     margin-left: 5px;
     text-decoration: none;
     font-size: 17px;
-    font-family: 'Merienda', cursive;
+    font-family: 'Merienda';
 }
 
 #nav-bar .nav-home {
@@ -50,21 +50,19 @@ body {
 
 .logo-wrap {
     display: inline-block;
-    width: 100px;
-    height: 100%;
-    background-image: url('Bilder/Logo/logotest.png');
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 150px;
+    height: 50px;
+    background: url('Bilder/Logo/logotest.png') no-repeat center center;
+    background-size: 150px 50px;
     transition: background-size 0.3s ease-in-out;
 }
 
 .logo-wrap:hover {
-    background-size: 100%;
+    background-size: 158px 53px;
 }
 
 #nav-bar .nav-login {
-    margin-left: 33%;
+    margin-left: 30%;
 }
 
 #nav-bar a:hover,
