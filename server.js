@@ -50,9 +50,9 @@ app.post('/login', (req, res) => {
 
 
 //Muffin Objekt
-function getMuffinNamesFromFiles() {
+function getNamesFromFiles(folder, prefix) {
     return new Promise((resolve, reject) => {
-      fs.readdir('Bilder/Muffin', (err, files) => {
+      fs.readdir(`Bilder/${folder}`, (err, files) => {
         if (err) {
           reject(err);
           return;
@@ -60,30 +60,49 @@ function getMuffinNamesFromFiles() {
   
         // Filtern der Dateien, um nur PNG-Bilder zu behalten
         const imageFiles = files.filter(file => path.extname(file).toLowerCase() === '.png');
-        // Extrahieren der Muffin-Namen aus den Dateinamen
-        const muffinNames = imageFiles.map(file => path.basename(file, '.png').replace('Muffin_', ''));
-        resolve(muffinNames);
+        // Extrahieren der Namen aus den Dateinamen
+        const names = imageFiles.map(file => path.basename(file, '.png').replace(`${prefix}_`, ''));
+        resolve(names);
       });
     });
   }
-  
-  function generateMuffinData(muffinNames) {
-    return muffinNames.map((name, index) => ({
+
+  function generateData(names, folder, prefix) {
+    return names.map((name, index) => ({
       id: index + 1,
-      imageUrl: `Bilder/Muffin/Muffin_${name}.png`,
-      name: `${name} Muffin`,
-      recipeUrl: `Rezepte/Muffin/Muffin_${name}_Anleitung.txt`,
-      ingredientsUrl: `Rezepte/Muffin/Muffin_${name}_Zutaten.txt`
+      imageUrl: `Bilder/${folder}/${prefix}_${name}.png`,
+      name: `${name} ${prefix}`,
+      recipeUrl: `Rezepte/${folder}/${prefix}_${name}_Anleitung.txt`,
+      ingredientsUrl: `Rezepte/${folder}/${prefix}_${name}_Zutaten.txt`
     }));
   }
   
   app.get('/muffins', async (req, res) => {
     try {
-      const muffinNames = await getMuffinNamesFromFiles();
-      const muffins = generateMuffinData(muffinNames);
-      res.json(muffins);
+      const names = await getNamesFromFiles('Muffin', 'Muffin');
+      const data = generateData(names, 'Muffin', 'Muffin');
+      res.json({ muffins: data });
     } catch (error) {
       res.status(500).send(error.toString());
     }
   });
   
+  app.get('/icings', async (req, res) => {
+    try {
+      const names = await getNamesFromFiles('Icing', 'Icing');
+      const data = generateData(names, 'Icing', 'Icing');
+      res.json({ icings: data });
+    } catch (error) {
+      res.status(500).send(error.toString());
+    }
+  });
+  
+  app.get('/toppings', async (req, res) => {
+    try {
+      const names = await getNamesFromFiles('Topping', 'Topping');
+      const data = generateData(names, 'Topping', 'Topping');
+      res.json({ toppings: data });
+    } catch (error) {
+      res.status(500).send(error.toString());
+    }
+  });

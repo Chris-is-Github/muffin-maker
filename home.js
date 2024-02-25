@@ -42,4 +42,32 @@ addEventListener("DOMContentLoaded", (event) => {
      console.error('Fehler beim Fetchen der Muffin-Daten:', error);
    });
 
+   fetch('/toppings')
+   .then(response => {
+     if (!response.ok) {
+       throw new Error('Netzwerkantwort nicht ok');
+     }
+     return response.json();
+   })
+   .then(data => {
+     console.log(data);
+   })
+   .catch(error => {
+     console.error('Fehler beim Fetchen der Muffin-Daten:', error);
+   });
+
+   fetch('/icings')
+   .then(response => {
+     if (!response.ok) {
+       throw new Error('Netzwerkantwort nicht ok');
+     }
+     return response.json();
+   })
+   .then(data => {
+     console.log(data);
+   })
+   .catch(error => {
+     console.error('Fehler beim Fetchen der Muffin-Daten:', error);
+   });
+
  });
