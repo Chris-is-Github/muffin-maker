@@ -21,13 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const registrationForm = document.querySelector('.form-box[action="/register"]');
 
     registrationForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Verhindern der Standardformularübermittlung
+        event.preventDefault();
 
         const username = document.getElementById('reg-username').value;
         const password = document.getElementById('reg-password-1').value;
         const password2 = document.getElementById('reg-password-2').value;
 
-        // Überprüfen, ob die Passwörter übereinstimmen
         if (password !== password2) {
             alert('Die Passwörter stimmen nicht überein.');
             return;
@@ -46,12 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Erfolgreiche Registrierung, Benutzer kann sich nun einloggen
                 alert('Registrierung erfolgreich. Sie können sich jetzt einloggen.');
-                // Umleitung zur Login-Seite oder zur Hauptseite
-                window.location.href = '/login.html'; // Ändern Sie dies entsprechend Ihrer Dateistruktur
+                window.location.href = '/login.html';
             } else {
-                // Fehlerbehandlung, z.B. Anzeigen einer Fehlermeldung
                 alert('Registrierung fehlgeschlagen: ' + data.message);
             }
         })
@@ -85,14 +81,14 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Speichern des Benutzernamens im lokalen Speicher für zukünftige Referenz
+
                 localStorage.setItem('loggedInUser', username);
-                // Umleitung zur Hauptseite oder zur gewünschten Seite
+
                 window.location.href = '/home.html';
-                // Funktion um Benutzerdaten zu speichern (muss auf dem Server implementiert sein)
+
                 saveUserData(username);
             } else {
-                // Fehlerbehandlung, z.B. Anzeigen einer Fehlermeldung
+
                 alert('Login fehlgeschlagen: ' + data.message);
             }
         })

@@ -32,7 +32,7 @@ app.post('/register', (req, res) => {
     if (users[username]) {
         return res.json({ success: false, message: 'Benutzername bereits vergeben.' });
     }
-    // Das Passwort-Übereinstimmungsprüfung wird auf der Clientseite durchgeführt
+
     users[username] = { password };
     fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
     res.json({ success: true, message: 'Registrierung erfolgreich!' });
@@ -44,7 +44,7 @@ app.post('/login', (req, res) => {
     if (!users[username] || users[username].password !== password) {
         return res.json({ success: false, message: 'Benutzername oder Passwort ungültig.' });
     }
-    // Hier könnten Sie einen Login-Token oder eine Session-ID zurückgeben
+
     res.json({ success: true, message: 'Erfolgreich eingeloggt!', username: username });
 });
 
@@ -58,9 +58,9 @@ function getNamesFromFiles(folder, prefix) {
           return;
         }
   
-        // Filtern der Dateien, um nur PNG-Bilder zu behalten
+
         const imageFiles = files.filter(file => path.extname(file).toLowerCase() === '.png');
-        // Extrahieren der Namen aus den Dateinamen
+
         const names = imageFiles.map(file => path.basename(file, '.png').replace(`${prefix}_`, ''));
         resolve(names);
       });
