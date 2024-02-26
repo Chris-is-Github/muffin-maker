@@ -81,7 +81,7 @@ function getNamesFromFiles(folder, prefix) {
 
   function generateData(names, folder, prefix) {
     return names.map((name, index) => ({
-      id: index + 1,
+      id: index,
       imageUrl: `Bilder/${folder}/${prefix}_${name}.png`,
       name: `${name} ${prefix}`,
       recipeUrl: `Rezepte/${folder}/${prefix}_${name}_Anleitung.txt`,
