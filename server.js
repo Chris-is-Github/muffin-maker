@@ -3,10 +3,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const session = require('express-session');
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use('/', express.static(__dirname + '/'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/home.html');
@@ -16,6 +18,12 @@ app.listen(PORT, () => {
     console.log(`Server läuft auf Port ${PORT}`);
 });
 
+app.use(session({
+  secret: 'muffinMaker123',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 
 //Login//Registrierung
 let users = {};
@@ -27,63 +35,110 @@ try {
 }
 
 app.post('/register', (req, res) => {
-    const username = req.body.username.toLowerCase();
-    const { password } = req.body;
+    const username = req.body.username;
+    const password = req.body.password;
     if (users[username]) {
         return res.json({ success: false, message: 'Benutzername bereits vergeben.' });
     }
-    // Das Passwort-Übereinstimmungsprüfung wird auf der Clientseite durchgeführt
+
     users[username] = { password };
     fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
+    req.session.loggedin = true;
+    req.session.username = username;
     res.json({ success: true, message: 'Registrierung erfolgreich!' });
 });
 
 app.post('/login', (req, res) => {
-    const username = req.body.username.toLowerCase();
-    const { password } = req.body;
+    const username = req.body.username;
+    const password = req.body.password;
     if (!users[username] || users[username].password !== password) {
         return res.json({ success: false, message: 'Benutzername oder Passwort ungültig.' });
     }
-    // Hier könnten Sie einen Login-Token oder eine Session-ID zurückgeben
+
+    req.session.loggedin = true;
+    req.session.username = username;
     res.json({ success: true, message: 'Erfolgreich eingeloggt!', username: username });
 });
 
 
 //Muffin Objekt
-function getMuffinNamesFromFiles() {
+function getNamesFromFiles(folder, prefix) {
     return new Promise((resolve, reject) => {
-      fs.readdir('Bilder/Muffin', (err, files) => {
+      fs.readdir(`Bilder/${folder}`, (err, files) => {
         if (err) {
           reject(err);
           return;
         }
   
-        // Filtern der Dateien, um nur PNG-Bilder zu behalten
+
         const imageFiles = files.filter(file => path.extname(file).toLowerCase() === '.png');
-        // Extrahieren der Muffin-Namen aus den Dateinamen
-        const muffinNames = imageFiles.map(file => path.basename(file, '.png').replace('Muffin_', ''));
-        resolve(muffinNames);
+
+        const names = imageFiles.map(file => path.basename(file, '.png').replace(`${prefix}_`, ''));
+        resolve(names);
       });
     });
   }
-  
-  function generateMuffinData(muffinNames) {
-    return muffinNames.map((name, index) => ({
+
+  function generateData(names, folder, prefix) {
+    return names.map((name, index) => ({
       id: index + 1,
-      imageUrl: `Bilder/Muffin/Muffin_${name}.png`,
-      name: `${name} Muffin`,
-      recipeUrl: `Rezepte/Muffin/Muffin_${name}_Anleitung.txt`,
-      ingredientsUrl: `Rezepte/Muffin/Muffin_${name}_Zutaten.txt`
+      imageUrl: `Bilder/${folder}/${prefix}_${name}.png`,
+      name: `${name} ${prefix}`,
+      recipeUrl: `Rezepte/${folder}/${prefix}_${name}_Anleitung.txt`,
+      ingredientsUrl: `Rezepte/${folder}/${prefix}_${name}_Zutaten.txt`
     }));
   }
   
   app.get('/muffins', async (req, res) => {
     try {
-      const muffinNames = await getMuffinNamesFromFiles();
-      const muffins = generateMuffinData(muffinNames);
-      res.json(muffins);
+      const names = await getNamesFromFiles('Muffin', 'Muffin');
+      const data = generateData(names, 'Muffin', 'Muffin');
+      res.json({ muffins: data });
     } catch (error) {
       res.status(500).send(error.toString());
     }
   });
   
+  app.get('/icings', async (req, res) => {
+    try {
+      const names = await getNamesFromFiles('Icing', 'Icing');
+      const data = generateData(names, 'Icing', 'Icing');
+      res.json({ icings: data });
+    } catch (error) {
+      res.status(500).send(error.toString());
+    }
+  });
+  
+  app.get('/toppings', async (req, res) => {
+    try {
+      const names = await getNamesFromFiles('Topping', 'Topping');
+      const data = generateData(names, 'Topping', 'Topping');
+      res.json({ toppings: data });
+    } catch (error) {
+      res.status(500).send(error.toString());
+    }
+  });
+
+  //Meine Muffins Speichern
+  app.post('/addMuffin', (req, res) => {
+    if (req.session.loggedin) {
+        const { icing, topping, muffinBase } = req.body;
+        const username = req.session.username;
+
+        if (!users[username].muffins) {
+            users[username].muffins = {};
+        }
+
+        const numOfMuffins = Object.keys(users[username].muffins).length;
+
+        const muffinName = `muffin${numOfMuffins + 1}`;
+
+        users[username].muffins[muffinName] = { icing, topping, muffinBase };
+
+        fs.writeFileSync('./users.json', JSON.stringify(users, null, 2)); // Daten speichern
+
+        res.json({ success: true, message: 'Muffin-Daten hinzugefügt/aktualisiert.' });
+    } else {
+        res.json({ success: false, message: 'Nicht eingeloggt.' });
+    }
+});
