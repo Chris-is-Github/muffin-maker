@@ -1,5 +1,3 @@
-
-
 function buttonListener(buttonID, bildID, muffinDropDownID){
     const myButton = document.getElementById(buttonID);
     myButton.addEventListener('click', function() {
@@ -29,7 +27,7 @@ function buttonListener(buttonID, bildID, muffinDropDownID){
 }
 
 //Aufruf des Listeners für jeden Muffin
-buttonListener('buttonDropDown1', 'pfeilBild1', 'muffin1__dropDown')
+/* buttonListener('buttonDropDown1', 'pfeilBild1', 'muffin1__dropDown')
 buttonListener('buttonDropDown2', 'pfeilBild2', 'muffin2__dropDown')
 buttonListener('buttonDropDown3', 'pfeilBild3', 'muffin3__dropDown')
-buttonListener('buttonDropDown4', 'pfeilBild4', 'muffin4__dropDown')
+buttonListener('buttonDropDown4', 'pfeilBild4', 'muffin4__dropDown') */

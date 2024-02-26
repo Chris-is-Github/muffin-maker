@@ -33,7 +33,7 @@ function txtInListeEinfuegen(txtDatei, einfuegeID) {
 }
 
 //Einfügen aller txt Datien an dem jeweiligen Ort
-txtInListeEinfuegen('../Rezepte/Muffin/Muffin_ChocolateChip_Zutaten.txt', 'muffin1__zutaten--einfügen');
+/* txtInListeEinfuegen('../Rezepte/Muffin/Muffin_ChocolateChip_Zutaten.txt', 'muffin1__zutaten--einfügen');
 txtInListeEinfuegen('../Rezepte/Icing/Icing_Erdbeer_Zutaten.txt', 'icing1__zutaten--einfügen' )
 txtInListeEinfuegen('../Rezepte/Topping/Topping_Amerika_Zutaten.txt', 'topping1__zutaten--einfügen')
 
@@ -65,4 +65,4 @@ txtInListeEinfuegen('../Rezepte/Topping/Topping_Amerika_Zutaten.txt', 'topping4_
 
 txtInListeEinfuegen('../Rezepte/Muffin/Muffin_ChocolateChip_Anleitung.txt', 'muffin4__anleitung--einfügen')
 txtInListeEinfuegen('../Rezepte/Icing/Icing_Erdbeer_Anleitung.txt', 'icing4__anleitung--einfügen' )
-txtInListeEinfuegen('../Rezepte/Topping/Topping_Amerika_Anleitung.txt', 'topping4__anleitung--einfügen')
+txtInListeEinfuegen('../Rezepte/Topping/Topping_Amerika_Anleitung.txt', 'topping4__anleitung--einfügen') */
