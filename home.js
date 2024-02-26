@@ -36,6 +36,7 @@ addEventListener("DOMContentLoaded", (event) => {
      return response.json();
    })
    .then(data => {
+   
      console.log(data);
    })
    .catch(error => {
