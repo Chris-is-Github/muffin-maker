@@ -88,6 +88,11 @@
     }
 
     /* Dynamischer Style der Elemente */
+
+    .muffin{
+        margin: 70px;
+    }
+
     .seitenTitel{
         margin: 30px;
     }
@@ -166,6 +171,10 @@
     }
 
     /* Dynamischer Style der Elemente */
+    .muffin{
+        margin: 70px;
+    }
+
     .seitenTitel{
         margin: 30px;
     }
@@ -220,7 +229,7 @@
     .muffin{
         display: grid;
         grid-auto-rows: auto;
-        grid-auto-columns: 20px auto 20px;
+        grid-auto-columns: 5% 90% 5%;
         grid-template-areas:
             ". Name ."
             ". DropDown .";
@@ -254,8 +263,7 @@
         border: 5px solid #EFE5DC;
     }
     .muffin{
-        margin-left: 0;
-        margin-right: 0;
+        margin: 70px 0 70px 0;
     }
 
     .name--style{
@@ -263,7 +271,6 @@
     }
 
     .bild{
-
         width: 55px;
         height: 55px;
     }
