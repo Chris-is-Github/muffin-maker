@@ -4,114 +4,134 @@ body {
     background-color: #EFE5DC;
 }
 
-
-
-.logo {
-    background-color: #602437;
+main{
     display: flex;
-    /* Verwendung von Flexbox für die Ausrichtung */
-    align-items: center;
-    /* Zentrieren der Elemente vertikal */
-}
+    justify-content: center;
+  }
 
-.headline {
-    font-size: 75%;
-}
+
 
 h1 {
     color: white;
 }
 
-.center {
-    display: flex;
 
-    justify-content: center;
+
+.muffin-maker {
+   
+    width: 60%;
+    height: 70vh;
+    padding-top: 150px;
+    display: inline;
 }
 
-.muffin_maker {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+.muffin-container{
+   
+    width: 500px;
+  height: 500px;
+ 
+  position: relative;
+/*   margin: auto; */
 
-    place-items: center;
-
-    height: 500px;
-}
-
-.muffin {
-
-    /* border-radius: 5px;				
-    background-color: red;	 */
-    grid-row: 4;
-    grid-column: 5;
-
-}
-
-.muf {
-    height: 500%;
-    width: 500%;
+  left: 50%;
+transform: translateX(-50%);
+  
+  
 
 }
 
-.image {
-    width: 15%;
-    height: 15%;
-    border-radius: 50%;
-    margin-right: 20px;
+.img-muffin, .img-icing , .img-topping{
+    overflow: hidden; 
+    position: absolute;
+   
+  
+    height: 100%;
+
+ 
+   
+}
+
+
+.muffin, .icing, .topping {
+    margin:0;
+    padding:0;
+    width: 500px; 
+    height:100%;
+    
+  }
+
+.img-icing{
+
+top: -90px;
+left: 50px;
 
 
 }
 
-.pfeil-lo,
-.pfeil-lm,
-.pfeil-lu,
-.pfeil-ro,
-.pfeil-rm,
-.pfeil-ru {
-    height: 30px;
-    width: 30px;
-    border-radius: 5px;
-    background-color: #3e55ba;
+
+
+.img-topping{
+top: -110px;
+z-index: 3;
+right: 60px;
 }
 
-.pfeil-lo {
-    grid-row: 3;
-    grid-column: 4;
-}
-
-.pfeil-lm {
-    grid-row: 4;
-    grid-column: 4;
-}
-
-.pfeil-lu {
-    grid-row: 5;
-    grid-column: 4;
+.icing{
+width: 100%;
+height: 80%;
 
 }
 
-.pfeil-ro {
-    grid-row: 3;
-    grid-column: 10;
+.topping{
+    width: 115%;
+}
+
+.pfeil-links-oben,
+.pfeil-links-mitte,
+.pfeil-links-unten,
+
+.pfeil-rechts-oben,
+.pfeil-rechts-mitte,
+.pfeil-rechts-unten
+{
+
+    position: relative;
+}
+
+.pfeil-links-oben{
 
 }
 
-.pfeil-rm {
-    grid-row: 4;
-    grid-column: 10;
+.pfeil-links-mitte{
+ 
+}
+
+.pfeil-links-unten{
 
 }
 
-.pfeil-ru {
-    grid-row: 5;
-    grid-column: 10;
+.pfeil-rechts-oben{
+float: right;
+bottom: 500px;
+}
+
+.pfeil-rechts-mitte{
+    float: right;
+    bottom: 325px;
+    
+
+}
+
+.center{
+        position: absolute;
 
 }
 
 
 
 h3 {
-
+    margin-left: auto;
+    margin-right: auto;
 
     border: 8px solid rgb(128, 0, 119);
     padding: 5px;
