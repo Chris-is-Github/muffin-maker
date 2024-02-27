@@ -142,3 +142,7 @@ function getNamesFromFiles(folder, prefix) {
         res.json({ success: false, message: 'Nicht eingeloggt.' });
     }
 });
+
+
+//getuserdata
+app.post('/')

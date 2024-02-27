@@ -17,8 +17,8 @@ function txtInListeEinfuegen(txtDatei, einfuegeID) {
             let liste = document.createElement('ul');
             zeilen.forEach(line => {
                 // loop geht durch jede Zeile durch und fügt jede Zeile in ein <li> Element,
-                // es sei denn die Zeile beinhaltet "NEWL", dann wird eine neue Liste angefangen
-                if (line.trim() === 'NEWL') {
+                // es sei denn die Zeile leer ist, dann wird eine neue Liste angefangen
+                if (line.trim() === '') {
                     einfuegePunkt.appendChild(liste);
                     liste = document.createElement('ul');
                 } else {
