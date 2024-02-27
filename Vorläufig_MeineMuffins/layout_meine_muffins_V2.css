@@ -1,0 +1,301 @@
+/* DEFINIERUNG ALLER GRID AREA NAMEN */
+
+.muffin {
+    /* Beinhaltet die einzelnen Muffin Menüs */
+    grid-area: Muffin;
+}
+
+
+.name {
+    /* Beinhaltet das Bild, den Name und den Pfeil für das jeweilige Menü */
+    grid-area: Name;
+}
+
+
+.bild{
+    grid-area: Bild;
+}
+
+.name--style{
+    grid-area: Name__Titel;
+}
+
+.pfeilButton{
+    grid-area: Pfeil;
+}
+
+
+.dropDown {
+    /* Beinhaltet die Zutaten und Anleitung für jedes Menü */
+    grid-area: DropDown;
+}
+
+
+.zutaten{
+    grid-area: Zutaten;
+}
+
+.anleitung {
+    grid-area: Anleitung;
+}
+
+
+
+/* Drop down der einzelnen Muffin Rezepte und Zutaten sind von Anfang versteckt (erscheinen nach klick auf Pfeil) */
+
+#muffin1__dropDown{
+    display: none;
+}
+
+#muffin2__dropDown{
+    display: none;
+}
+
+#muffin3__dropDown{
+    display: none;
+}
+
+#muffin4__dropDown{
+    display: none;
+}
+
+
+/* LAYOUT FÜR DIE VERSCHIEDENEN BILDSCHIRMGRÖßEN */
+
+@media screen and (min-width: 1280px) {
+    /* Grid */
+    .muffin{
+        display: grid;
+        grid-auto-rows: auto;
+        grid-auto-columns: 12% 76% 12%;
+        grid-template-areas:
+            ". Name ."
+            ". DropDown .";
+    }
+
+    .name{
+        display: grid;
+        grid-template-columns: 120px auto 80px;
+        grid-auto-rows: auto;
+        grid-template-areas: "Bild Name__Titel Pfeil";
+    }
+
+    .dropDown{
+        display: grid;
+        grid-template-columns: 45% 55%;
+        grid-auto-rows: auto;
+        grid-template-areas: "Zutaten Anleitung";
+    }
+
+    /* Dynamischer Style der Elemente */
+    .seitenTitel{
+        margin: 30px;
+    }
+    .titel{
+        font-size: 100px;
+
+    }
+    hr{
+        border: 10px solid #EFE5DC;
+    }
+
+    .name--style{
+        font-size: 30px;
+    }
+
+    .bild{
+        width: 85px;
+        height: 85px;
+        margin-left: 20px;
+    }
+
+    .pfeilButton__bild--rechts{
+        width: 40px;
+        height: 40px;
+    }
+
+    .zutaten{
+        padding-left: 70px;
+        padding-bottom: 20px;
+    }
+
+    .anleitung{
+        padding-right: 70px;
+        padding-bottom: 20px;
+    }
+
+    .anleitung__titel, .zutaten__titel{
+        font-size: 30px;
+    }
+
+    .zutaten__überschrift, .anleitung__überschrift{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .zutaten__liste, .anleitung_liste{
+        padding-left: 20px;
+        font-size: large;
+
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    /* Grid */
+    .muffin{
+        display: grid;
+        grid-auto-rows: auto;
+        grid-auto-columns: 10% 80% 10%;
+        grid-template-areas:
+            ". Name ."
+            ". DropDown .";
+    }
+
+    .name{
+        display: grid;
+        grid-template-columns: 80px auto 80px;
+        grid-auto-rows: auto;
+        grid-template-areas: "Bild Name__Titel Pfeil";
+    }
+
+    .dropDown{
+        display: grid;
+        grid-template-columns: 45% 55%;
+        grid-auto-rows: auto;
+        grid-template-areas: "Zutaten Anleitung";
+    }
+
+    /* Dynamischer Style der Elemente */
+    .seitenTitel{
+        margin: 30px;
+    }
+    .titel{
+        font-size: 75px;
+    }
+    hr{
+        border: 8px solid #EFE5DC;
+    }
+
+    .name--style{
+        font-size: 22px;
+    }
+
+    .bild{
+        width: 60px;
+        height: 60px;
+    }
+
+
+    .pfeilButton__bild--rechts{
+        width: 35px;
+        height: 35px;
+    }
+
+    .zutaten{
+        padding-left: 40px;
+        padding-bottom: 20px;
+    }
+
+    .anleitung{
+        padding-right: 40px;
+        padding-bottom: 20px;
+    }
+
+    .anleitung__titel, .zutaten__titel{
+        font-size: 22px;
+    }
+
+    .zutaten__überschrift, .anleitung__überschrift{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .zutaten__liste, .anleitung_liste{
+        padding-left: 20px;
+        font-size: medium;
+    }
+}
+
+@media  screen and (max-width: 767px) {
+    /* Grid */
+    .muffin{
+        display: grid;
+        grid-auto-rows: auto;
+        grid-auto-columns: 20px auto 20px;
+        grid-template-areas:
+            ". Name ."
+            ". DropDown .";
+    }
+
+    .name{
+        display: grid;
+        grid-template-columns: 50px auto 30px;
+        grid-auto-rows: auto;
+        grid-template-areas: "Bild Name__Titel Pfeil";
+    }
+
+    .dropDown{
+        display: grid;
+        grid-auto-columns: auto;
+        grid-auto-rows: auto;
+        grid-template-areas:
+                "Zutaten"
+                "Anleitung";
+    }
+
+    /* Dynamischer Style der Elemente */
+    .seitenTitel{
+        margin: 30px 0 30px 0;
+        font-size: 13px;
+    }
+    .titel{
+        font-size: 50px;
+    }
+    hr{
+        border: 5px solid #EFE5DC;
+    }
+    .muffin{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .name--style{
+        font-size: 18px;
+    }
+
+    .bild{
+
+        width: 55px;
+        height: 55px;
+    }
+
+    .pfeilButton__bild--rechts{
+        width: 25px;
+        height: 25px;
+    }
+
+    .zutaten{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+    }
+
+    .anleitung{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+    }
+
+    .anleitung__titel, .zutaten__titel{
+        font-size: 18px;
+    }
+
+    .zutaten__überschrift, .anleitung__überschrift{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .zutaten__liste, .anleitung_liste{
+        padding-left: 20px;
+        font-size: small;
+    }
+
+}
