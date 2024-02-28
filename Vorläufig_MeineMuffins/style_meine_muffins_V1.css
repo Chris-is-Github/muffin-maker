@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Pacifico';
+    src: url('fonts/Pacifico-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Merienda';
+    src: url('fonts/Merienda-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik-VariableFont_wght.ttf') format('truetype');
+}
+
+
 body{
     font-family: "Rubik", sans-serif;
     background: white;
@@ -20,13 +36,17 @@ body{
 }
 
 hr {
-    border: 10px solid #EFE5DC;
     border-radius: 5px;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-/* MUFFIN BEZEICHNUNG*/
+
+
+/* EINZELNE MUFFIN MENÜS */
+
+
+
 .name{
     background: #602437;
     padding: 10px;
@@ -45,7 +65,6 @@ hr {
 
 .bild{
     /* Erstellt einen runden, weißen Container in dem die einzelnen Bilder sind */
-
     overflow: hidden;
     border-radius: 50%;
     background: white;
@@ -92,7 +111,7 @@ hr {
 
 
 .pfeilButton{
-    /*Positioniert Pfeil Button rechts auf der Leiste*/
+    /* Positioniert Pfeil Button rechts auf der Leiste */
     background: transparent;
     border: none;
     cursor: pointer;
@@ -102,12 +121,12 @@ hr {
 }
 
 .pfeilButton__bild--rechts{
-    /*Pfeil zeigt nach rechts*/
+    /* Pfeil zeigt nach rechts */
     transition: .2s ease-in-out;
 }
 
 .pfeilButton__bild--unten{
-    /*Anzeige von Pfeil nachdem er geklickt wurde (zeigt nach unten)*/
+    /* Anzeige von Pfeil nachdem er geklickt wurde (zeigt nach unten) */
     transform: rotate(90deg);
     transition: .2s ease-in-out;
 }
@@ -121,12 +140,9 @@ hr {
 }
 
 
-
-
 .anleitung__titel, .zutaten__titel{
     font-family: "Merienda", cursive;
 }
-
 
 .zutaten__überschrift, .anleitung__überschrift{
     font-style: italic;
