@@ -12,6 +12,8 @@ fetch('/muffins')
   })
   .then(data => {
     muffin = data.muffins;
+    document.getElementById("muffin-home").src = muffin[0].imageUrl;
+    document.getElementById("text-muffin").textContent = muffin[0].name;
     console.log(muffin);
   })
   .catch(error => {
@@ -27,6 +29,8 @@ fetch('/toppings')
   })
   .then(data => {
     topping = data.toppings;
+    document.getElementById("topping-home").src = topping[0].imageUrl;
+    document.getElementById("text-topping").textContent = topping[0].name;
     console.log(topping);
   })
   .catch(error => {
@@ -43,6 +47,8 @@ fetch('/icings')
   .then(data => {
     icing = data.icings;
     console.log(icing);
+    document.getElementById("icing-home").src = icing[0].imageUrl;
+    document.getElementById("text-icing").textContent = icing[0].name;
   })
   .catch(error => {
     console.error('Fehler beim Fetchen der Muffin-Daten:', error);
@@ -60,6 +66,7 @@ function change_muffin(button) {
         i = icing.length - 1;
       }
       document.getElementById("icing-home").src = icing[i].imageUrl;
+      document.getElementById("text-icing").textContent = icing[i].name;
      break;
 
     case 2:
@@ -68,6 +75,7 @@ function change_muffin(button) {
         i = 0;
       }
       document.getElementById("icing-home").src = icing[i].imageUrl;
+      document.getElementById("text-icing").textContent = icing[i].name;
       break;
 
 
@@ -78,7 +86,7 @@ function change_muffin(button) {
         i = topping.length - 1;
       }
       document.getElementById("topping-home").src = topping[i].imageUrl;
-
+      document.getElementById("text-topping").textContent = topping[i].name;
       break;
 
     case 4:
@@ -87,6 +95,7 @@ function change_muffin(button) {
         i = 0;
       }
       document.getElementById("topping-home").src = topping[i].imageUrl;
+      document.getElementById("text-topping").textContent = topping[i].name;
       break;
     case 5:
       i--;
@@ -94,6 +103,7 @@ function change_muffin(button) {
         i = muffin.length - 1;
       }
       document.getElementById("muffin-home").src = muffin[i].imageUrl;
+      document.getElementById("text-muffin").textContent = muffin[i].name;
 
       break;
     case 6:
@@ -102,6 +112,7 @@ function change_muffin(button) {
         i = 0;
       }
       document.getElementById("muffin-home").src = muffin[i].imageUrl;
+      document.getElementById("text-muffin").textContent = muffin[i].name;
       break;
 
 

@@ -4,10 +4,7 @@ body {
     background-color: #EFE5DC;
 }
 
-main{
-    display: flex;
-    justify-content: center;
-  }
+
 
 
 
@@ -15,14 +12,15 @@ h1 {
     color: white;
 }
 
-
-
 .muffin-maker {
    
-    width: 60%;
+    width: 125vh;
     height: 70vh;
-    padding-top: 150px;
-    display: inline;
+    padding-top: 100px;
+
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .muffin-container{
@@ -53,50 +51,115 @@ transform: translateX(-50%);
 
 
 .muffin, .icing, .topping {
-    margin:0;
-    padding:0;
+ 
     width: 500px; 
     height:100%;
     
   }
 
+
 .img-icing{
 
-top: -90px;
-left: 50px;
-
+top: -150px;
 
 }
 
 
 
 .img-topping{
-top: -110px;
+    top: -150px; 
+    
 z-index: 3;
-right: 60px;
-}
-
-.icing{
-width: 100%;
-height: 80%;
 
 }
 
-.topping{
-    width: 115%;
+.img-pfeil{
+        width: 40%;
+        height: 40%;
 }
 
-.pfeil-links-oben,
-.pfeil-links-mitte,
-.pfeil-links-unten,
 
-.pfeil-rechts-oben,
-.pfeil-rechts-mitte,
-.pfeil-rechts-unten
+.third-layer
 {
+position: absolute;
+width: inherit;
+top: 600px;
 
-    position: relative;
 }
+.first-layer{
+
+    position: absolute;
+width: inherit;
+top: 300px;
+
+
+
+}
+
+.second-layer{
+    position: absolute;
+width: inherit;
+top: 450px;
+
+}
+
+.img-pfeil-links{
+    width: 50%;
+    height: 50%;
+    rotate: 180deg;
+}
+
+.img-pfeil-rechts{
+    width: 50%;
+    height: 50%;
+}
+
+.pfeil-rechts-oben{
+    float: right;
+    
+    }
+
+.text{
+height: inherit;
+
+    
+float: right;
+
+margin-right: 20px;
+
+
+border: none;
+background: none;
+/* background-color: #EFE5DC; */
+/* 
+    border: none;
+    border-radius: 5px; */
+    color: #602437;
+  /*   color: white; */
+    
+    font-family: 'Merienda', cursive;
+     
+}
+
+
+
+ 
+
+
+    
+    .pfeil-rechts-mitte{
+       float: right;
+      
+       
+     
+    }    
+
+    .pfeil-rechts-unten {
+
+        float: right;
+    }
+
+ 
 
 .pfeil-links-oben{
 
@@ -110,20 +173,18 @@ height: 80%;
 
 }
 
-.pfeil-rechts-oben{
-float: right;
-bottom: 500px;
-}
 
-.pfeil-rechts-mitte{
-    float: right;
-    bottom: 325px;
-    
 
-}
+
+
+
+
+
+
+
 
 .center{
-        position: absolute;
+        position: relative;
 
 }
 
