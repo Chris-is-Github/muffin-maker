@@ -3,6 +3,10 @@ let topping = [];
 let muffin = [];
 let icing = [];
 
+let icing_id  ;
+let topping_id ;
+let muffinBase_id ;
+
 fetch('/muffins')
   .then(response => {
     if (!response.ok) {
@@ -124,7 +128,11 @@ function change_muffin(button) {
 
 }
 
+function safe_muffin(){
 
+
+
+}
 
 
 
@@ -133,14 +141,31 @@ function change_muffin(button) {
 
 // muffin Speichern (noch nicht getestet)
 
-/*  const requestOptions = {
+function safe_muffin(){
+
+  
+
+  
+  let icing_id = icing[i].id; 
+  let topping_id = topping[i].id; 
+  let muffinBase_id = muffin[i].id; 
+
+  /* console.log(icing);  */
+  
+  console.log(topping_id); 
+  console.log(muffinBase_id); 
+  console.log(icing_id); 
+  
+  const requestOptions = {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ icing, topping, muffinBase }),
+  body: JSON.stringify({ icing_id, topping_id, muffinBase_id }),
   credentials: 'include' 
 };
 
 fetch('/addMuffin', requestOptions)
     .then(response => response.json())
     .then(data => console.log(data))
-    .catch(error => console.error('Fehler beim Hinzufügen des Muffins:', error)); */
+    .catch(error => console.error('Fehler beim Hinzufügen des Muffins:', error)); 
+
+}

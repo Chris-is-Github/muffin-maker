@@ -121,6 +121,7 @@ function getNamesFromFiles(folder, prefix) {
 
   //Meine Muffins Speichern
   app.post('/addMuffin', (req, res) => {
+    console.log(req.session.loggedin);
     if (req.session.loggedin) {
         const { icing, topping, muffinBase } = req.body;
         const username = req.session.username;
@@ -128,6 +129,7 @@ function getNamesFromFiles(folder, prefix) {
         if (!users[username].muffins) {
             users[username].muffins = {};
         }
+
 
         const numOfMuffins = Object.keys(users[username].muffins).length;
 
@@ -146,3 +148,5 @@ function getNamesFromFiles(folder, prefix) {
 
 //getuserdata
 app.post('/')
+
+//getlogged
