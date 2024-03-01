@@ -1,158 +1,176 @@
 body {
-    margin: 0px;
-    padding: 0;
-    background-color: #EFE5DC;
+  margin: 0px;
+  padding: 0;
+  background-color: #ffffff;
 }
 
-
-main{
-  height: 70vh;  
+main {
+  height: 70vh;
 }
 
-
+hr {
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 8px solid #EFE5DC;
+}
 
 
 .center {
-    position: relative;
-
+  position: relative;
 }
 
 .muffin-maker {
-
-    width: 125vh;
-   
-    padding-top: 100px; 
-
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+  width: 125vh;
+  padding-top: 100px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .muffin-container {
+  width: 500px;
+  height: 500px;
 
-    width: 500px;
-    height: 500px;
+  position: relative;
+  /*   margin: auto; */
 
-    position: relative;
-    /*   margin: auto; */
-
-    left: 50%;
-    transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .img-muffin,
 .img-icing,
 .img-topping {
-    overflow: hidden;
-    position: absolute;
-
-    height: 100%;
-
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
 }
 
 .muffin,
 .icing,
 .topping {
-
-    width: 500px;
-    height: 100%;
-
+  width: 500px;
+  height: 100%;
 }
 
 .img-icing {
-
-    top: -150px;
-
+  top: -150px;
 }
 
 .img-topping {
-    top: -150px;
+  top: -150px;
 
-    z-index: 3;
-
+  z-index: 3;
 }
 
 .img-pfeil {
-    width: 40%;
-    height: 40%;
+  width: 40%;
+  height: 40%;
 }
-
-
 
 .first-layer,
 .second-layer,
 .third-layer {
-    padding-top: 90px;
-   position: absolute;
-    width: inherit;
+  padding-top: 90px;
+  position: absolute;
+  width: inherit;
 }
 
 .first-layer {
-    top: 300px;
+  top: 300px;
 }
 
 .second-layer {
-    top: 450px;
+  top: 450px;
 }
 
 .third-layer {
-    top: 600px;
+  top: 600px;
 }
 
-
-
-
 .img-pfeil-links {
-    width: 50%;
-    height: 50%;
-    rotate: 180deg;
+  width: 50%;
+  height: 50%;
+  rotate: 180deg;
 }
 
 .img-pfeil-rechts {
-    width: 50%;
-    height: 50%;
+  width: 50%;
+  height: 50%;
+}
+
+.first-layer button,
+.second-layer button,
+.third-layer button {
+  border: none;
+  background-color: #efe5dc;
+  cursor: pointer;
+  font-family: 'Merienda', cursive;
+  border-radius: 20px;
+}
+
+.first-layer button:hover img,
+.second-layer button:hover img,
+.third-layer button:hover img {
+  filter: opacity(50%);
+}
+
+.first-layer button:active img,
+.second-layer button:active img,
+.third-layer button:active img {
+    
+        filter: opacity(100%);
+        
+        
+      }
+.first-layer button:active ,
+.second-layer button:active,
+.third-layer button:active  {
+    
+        transform: translateY(4px);
+        
+        
+      }
+
+
+
+
+.pfeil-rechts-oben,
+.pfeil-rechts-mitte,
+.pfeil-rechts-unten {
+  float: right;
 }
 
 .pfeil-rechts-oben,
 .pfeil-rechts-mitte,
 .pfeil-rechts-unten {
-    float: right;
-
+  margin-left: 20px;
 }
 
 
-.pfeil-links-oben,
-.pfeil-links-mitte,
-.pfeil-links-unten{
 
-    margin-left: 20px;
-
-}
-
-
+/* wird nicht genutz */
 .text {
-    height: inherit;
+  height: inherit;
 
+  float: right;
 
-    float: right;
+  margin-right: 20px;
 
-    margin-right: 20px;
-
-
-    border: none;
-    background: none;
-    /* background-color: #EFE5DC; */
-    /* 
+  border: none;
+  background: none;
+  /* background-color: #EFE5DC; */
+  /* 
     border: none;
     border-radius: 5px; */
-    color: #602437;
-    /*   color: white; */
+  color: #602437;
+  /*   color: white; */
 
-    font-family: 'Merienda', cursive;
-
+  font-family: "Merienda", cursive;
 }
 
-
+/* 
 h3 {
     margin-left: auto;
     margin-right: auto;
@@ -162,4 +180,5 @@ h3 {
     width: fit-content;
 
 
-}
+} */
+/* wird nicht genutz */
