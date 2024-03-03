@@ -1,0 +1,277 @@
+/* DEFINIERUNG ALLER GRID AREA NAMEN */
+nav{
+    grid-area: nav
+}
+
+main{
+    grid-area: main;
+}
+
+#muffinDerWoche{
+    grid-area: muffinDerWoche;
+}
+
+#muffinDerWoche--SeitenTitel {
+    grid-area: muffinDerWoche--SeitenTitel;
+}
+
+#muffinDerWoche--SeitenTitel--erklärung {
+    grid-area: mDW-e;
+}
+
+#muffinDerWoche--titel{
+    grid-area: mDW-t;
+}
+
+#muffinDerWoche--rezept{
+    grid-area: mDW-r;
+}
+
+#muffinDerWoche--zutatent{
+    grid-area: mDW-z;
+}
+
+#muffinDerWoche--bild {
+    grid-area: mDW-b;
+}
+
+#muffinsDerWochenZuvor {
+    grid-area: muffinsDerWocheZuvor;
+}
+
+#muffinsDerWochenZuvor--überschrift {
+    grid-area: mDWZ-ü;
+}
+
+#muffinsDerWochenZuvor--muffin1{
+    grid-area: mDWZ-m1;
+}
+
+#muffinsDerWochenZuvor--muffin2{
+    grid-area: mDWZ-m2;
+}
+
+#muffinsDerWochenZuvor--muffin3{
+    grid-area: mDWZ-m3;
+}
+
+#muffinsDerWochenZuvor--muffin4{
+    grid-area: mDWZ-m4;
+}
+
+#muffinsDerWochenZuvor--muffin5{
+    grid-area: mDWZ-m5;
+}
+
+
+/* LAYOUT FÜR DIE VERSCHIEDENEN BILDSCHIRMGRÖßEN */
+@media screen and (min-width: 1280px){
+
+    body{
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-template-columns: 9% 1fr 9%;
+        grid-template-areas:
+            'nav nav nav'
+            'muffinDerWoche--SeitenTitel muffinDerWoche--SeitenTitel muffinDerWoche--SeitenTitel'
+            '. main .'
+            '. main .'
+            'footer footer footer';
+        font-size: 110%;
+    }
+
+    main{
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-row-gap: 3%;
+        grid-template-areas:
+        'muffinDerWoche'
+        'muffinsDerWocheZuvor';
+    }
+
+    hr {
+        border: 10px solid #EFE5DC;
+    }
+
+    #muffinDerWoche--SeitenTitel--erklärung{
+        font-size: smaller;
+    }
+
+    #muffinDerWoche{
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 2%;
+        grid-template-areas:
+        'mDW-t mDW-t mDW-t'
+        '. mDW-b .'
+        'mDW-z mDW-r mDW-r';
+    }
+
+    #muffinDerWoche--bild{
+        height: 450px;
+        width: 450px;
+        justify-content: center;
+    }
+
+    #muffinsDerWochenZuvor{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 20% 1fr;
+        grid-gap: 3%;
+        grid-template-areas:
+        'mDWZ-ü mDWZ-ü mDWZ-ü mDWZ-ü mDWZ-ü'
+        'mDWZ-m1 mDWZ-m2 mDWZ-m3 mDWZ-m4 mDWZ-m5';
+    }
+
+    #muffinDerWoche--SeitenTitel-h1{
+        font-size: 100px;
+    }
+
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1279px){
+    body{
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-template-columns: 4% 1fr 4%;
+        grid-template-areas:
+            'nav nav nav'
+            'muffinDerWoche--SeitenTitel muffinDerWoche--SeitenTitel muffinDerWoche--SeitenTitel'
+            '. main .'
+            '. main .'
+            'footer footer footer';
+        font-size: 110%;
+    }
+
+    main{
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-row-gap: 1%;
+        grid-template-areas:
+        'muffinDerWoche'
+        'muffinsDerWocheZuvor';
+    }
+
+    hr{
+        border: 8px solid #EFE5DC;
+    }
+
+    #muffinDerWoche--SeitenTitel--erklärung{
+        font-size: smaller;
+    }
+
+    #muffinDerWoche{
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-template-columns: 10% 80% 10%;
+
+        grid-template-areas:
+        'mDW-t mDW-t mDW-t'
+        '. mDW-b .'
+        '. mDW-z .'
+        '. mDW-r .';
+    }
+
+
+    #muffinDerWoche--bild{
+        height: 600px;
+        width: 600px;
+    }
+
+
+    #muffinsDerWochenZuvor{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: max-content;
+        grid-gap: 3%;
+        grid-template-areas:
+        'mDWZ-ü mDWZ-ü'
+        'mDWZ-m1 mDWZ-m2'
+        'mDWZ-m3 mDWZ-m4'
+        'mDWZ-m5  .';
+    }
+
+    #muffinDerWoche--SeitenTitel-h1{
+        font-size: 75px;
+    }
+}
+
+
+
+@media  screen and (max-width: 767px){
+    body{
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-template-columns: 4% 1fr 4%;
+        grid-template-areas:
+            'nav nav nav'
+            'muffinDerWoche--SeitenTitel muffinDerWoche--SeitenTitel muffinDerWoche--SeitenTitel'
+            '. main .'
+            '. main .'
+            'footer footer footer';
+        font-size: 110%;
+    }
+
+    #muffinDerWoche--SeitenTitel-h1{
+        font-size: 50px;
+    }
+
+
+    #muffinDerWoche--SeitenTitel--erklärung{
+        font-size: smaller;
+    }
+
+    hr{
+        border: 5px solid #EFE5DC;
+    }
+
+    main{
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-row-gap: 1%;
+        grid-template-areas:
+        'muffinDerWoche'
+        'muffinsDerWocheZuvor';
+    }
+
+    #muffinDerWoche{
+        display: grid;
+        grid-auto-rows: max-content;
+        grid-template-columns: 10% 80% 10%;
+
+        grid-template-areas:
+        'mDW-t mDW-t mDW-t'
+        '. mDW-b .'
+        '. mDW-z .'
+        '. mDW-r .';
+    }
+
+
+    #muffinDerWoche--bild{
+        height: 300px;
+        width: 300px;
+        align-self: center;
+    }
+
+
+    #muffinsDerWochenZuvor{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: max-content;
+        grid-gap: 3%;
+        grid-template-areas:
+        'mDWZ-ü'
+        'mDWZ-m1'
+        'mDWZ-m2'
+        'mDWZ-m3'
+        'mDWZ-m4'
+        'mDWZ-m5';
+    }
+
+
+
+
+}

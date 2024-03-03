@@ -1,0 +1,144 @@
+nav{
+    background-color: #252422;
+    color: white;
+}
+
+body{
+   margin: 0;
+   font-family: "Rubik", sans-serif;
+   font-optical-sizing: auto;
+   font-style: normal;
+}
+
+#muffinDerWoche{
+    background-color: #EFE5DC;
+}
+
+#muffinDerWoche--SeitenTitel{
+    background-color: white;
+    text-align: center;
+}
+
+#muffinDerWoche--SeitenTitel-h1{
+    font-family: "Pacifico", cursive;
+    color: #602437;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    text-shadow: 2px 1px 4px #696565;
+}
+
+hr {
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+#muffinDerWoche--titel{
+    background-color: #602437;
+    color: white;
+    text-align: center;
+    font-family: "Merienda", cursive;
+    font-optical-sizing: auto;
+}
+
+#muffinDerWoche--bild{
+    position: relative;
+    align-self: center;
+
+}
+
+#muffinDerWoche--bild__muffin{
+    /* Anpassen der Position von dem Muffin Bild */
+    display: block;
+    position: absolute;
+    height: auto;
+    width: 95%;
+    z-index: 0;
+    top: 15%;
+    left: 9%;
+}
+
+#muffinDerWoche--bild__icing{
+    /* Anpassen der Position von dem Icing Bild */
+    display: block;
+    position: absolute;
+    height: auto;
+    width: 95%;
+    z-index: 1;
+    top: -13%;
+    left: 10%;
+    rotate: -3deg;
+}
+
+#muffinDerWoche--bild__topping{
+    /* Anpassen der Position von dem Topping Bild */
+    display: block;
+    position: absolute;
+    height: auto;
+    width: 95%;
+    z-index: 2;
+    top: -13%;
+    left: 10%;
+    rotate: -3deg;
+}
+
+
+#muffinsDerWochenZuvor--überschrift{
+    background-color: #602437;
+    color: white;
+    font-family: "Merienda", cursive;
+    font-optical-sizing: auto;
+    text-align: center;
+}
+
+.muffinsDerWocheZuvor--muffins{
+    background-color: #EFE5DC;
+}
+
+.muffinsDerWocheZuvor--muffins--images{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    align-self: center;
+}
+
+.muffinsDerWocheZuvor--muffins--images--muffins{
+   /* Anpassen der Position der Muffin-Bilder */
+   display: block;
+   position: absolute;
+   height: auto;
+   width: 80%;
+   z-index: 0;
+   top: 19%;
+   left: 9%;
+}
+
+.muffinsDerWocheZuvor--muffins--images--icings{
+   /* Anpassen der Position der Icing-Bilder */
+   display: block;
+   position: absolute;
+   height: auto;
+   width: 80%;
+   z-index: 1;
+   top: -9%;
+   left: 10%;
+   rotate: -3deg;
+}
+
+.muffinsDerWocheZuvor--muffins--images--toppings{
+   /* Anpassen der Position der Topping-Bilder */
+   display: block;
+   position: absolute;
+   height: auto;
+   width: 80%;
+   z-index: 2;
+   top: -9%;
+   left: 10%;
+   rotate: -3deg;
+}
+
+
+footer{
+    grid-area: footer;
+}
