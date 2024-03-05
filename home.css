@@ -5,7 +5,7 @@ body {
 }
 
 main {
-  height: 70vh;
+  /* height: 70vh; */
 }
 
 hr {
@@ -24,8 +24,10 @@ hr {
   width: 125vh;
   padding-top: 100px;
   display: block;
-  margin-right: auto;
-  margin-left: auto;
+/*   margin-right: auto;
+  margin-left: auto; */
+
+  margin-left: 5%;
 }
 
 .muffin-container {
@@ -47,7 +49,7 @@ hr {
   height: 100%;
 }
 
-.muffin,
+.muffin1,
 .icing,
 .topping {
   width: 500px;
@@ -173,8 +175,54 @@ hr {
     color: white;
     cursor: pointer;
     font-family: 'Merienda', cursive;
+   
 }
+
+
 
 #safe-muffin:hover {
     background-color: #402437;
 } 
+
+
+
+.zutaten
+{
+
+  width: 80%;
+  margin-right: 100%;
+  margin-left: 10%;
+  
+
+}
+
+.zutatenliste{
+
+
+}
+
+.rezepte{
+
+
+
+  
+ 
+ 
+  width:20% ;
+  float: right;
+height: inherit;
+margin-right: 5%;
+
+}
+
+#muffin1dropDown{
+
+height: 450px;
+
+}
+
+#topping1zutaten--einfügen{
+
+  width: inherit;
+
+}

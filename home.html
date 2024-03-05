@@ -10,6 +10,9 @@
     <title>Muffin</title>
     <link rel="Stylesheet" href="home.css"> </link>
     <link rel="Stylesheet" href="style.css"> </link>
+    
+    <link rel="stylesheet" href="Vorläufig_MeineMuffins/style_meine_muffins_V1.css">
+    
 </head>
 
 <body>
@@ -30,7 +33,34 @@
         
 
     <main>
-
+        <div class="rezepte">
+            
+                <button id="safe-muffin" onclick="safe_muffin()"> Speicher deinen Muffin, um das ganze Rezept zu sehen</button>
+           
+            <div class="dropDown" id="muffin1dropDown">
+                <div class="zutaten" id="muffin1zutaten">
+                    <h3 class="zutatentitel">Zutaten</h3>
+                    <section class="zutatenliste">
+                        <p>Zutaten für <b>12</b> Muffins</p>
+                        <h4 class="zutatenüberschrift">Icing</h4>
+                        <section id="icing1zutaten--einfügen"></section>
+                        <h4 class="zutatenüberschrift">Topping</h4>
+                        <section id="topping1zutaten--einfügen"></section>
+                        <h4 class="zutatenüberschrift">Muffin</h4>
+                        <section id="muffin1zutaten--einfügen"></section>
+                        
+                       
+        
+                        
+        
+                    </section>
+                </div>
+        
+                
+            </div>
+        
+          
+        </div>
 
         <div class="muffin-maker">
            
@@ -39,7 +69,7 @@
             <div class=" muffin-container">
 
                 <div class=" img-muffin">
-                      <img src=""  class="muffin" id="muffin-home">
+                      <img src=""  class="muffin1" id="muffin-home">
                     </div>
 
                     <div class=" img-topping">
@@ -89,31 +119,6 @@
     
 </div>
 
-<div class="rezepte">
-
-    <div class="dropDown" id="muffin1dropDown">
-        <div class="zutaten" id="muffin1zutaten">
-            <h3 class="zutatentitel">Zutaten</h3>
-            <section class="zutatenliste">
-                <p>Zutaten für <b>12</b> Muffins</p>
-
-                <h4 class="zutatenüberschrift">Muffin</h4>
-                <section id="muffin1zutaten--einfügen"></section>
-
-                <h4 class="zutatenüberschrift">Icing</h4>
-                <section id="icing1zutaten--einfügen"></section>
-
-                <h4 class="zutatenüberschrift">Topping</h4>
-                <section id="topping1zutaten--einfügen"></section>
-
-            </section>
-        </div>
-
-        
-    </div>
-
-    <button id="safe-muffin" onclick="safe_muffin()"> Speicher deinen Muffin</button>
-</div>
 
 
 

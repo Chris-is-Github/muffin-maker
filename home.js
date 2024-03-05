@@ -1,4 +1,7 @@
-let i = 0;
+let muffin_zahl = 0;
+let topping_zahl = 0;
+let icing_zahl = 0;
+
 let topping = [];
 let muffin = [];
 let icing = [];
@@ -19,6 +22,7 @@ fetch("/muffins")
     document.getElementById("muffin-home").src = muffin[0].imageUrl;
     document.getElementById("text-muffin").textContent = muffin[0].name;
     console.log(muffin);
+    txtInListeEinfuegen(muffin[0].ingredientsUrl, "muffin1zutaten--einfügen");
   })
   .catch((error) => {
     console.error("Fehler beim Fetchen der Muffin-Daten:", error);
@@ -36,6 +40,7 @@ fetch("/toppings")
     document.getElementById("topping-home").src = topping[0].imageUrl;
     document.getElementById("text-topping").textContent = topping[0].name;
     console.log(topping);
+    txtInListeEinfuegen(topping[0].ingredientsUrl, "topping1zutaten--einfügen");
   })
   .catch((error) => {
     console.error("Fehler beim Fetchen der Muffin-Daten:", error);
@@ -53,6 +58,7 @@ fetch("/icings")
     console.log(icing);
     document.getElementById("icing-home").src = icing[0].imageUrl;
     document.getElementById("text-icing").textContent = icing[0].name;
+    txtInListeEinfuegen(icing[0].ingredientsUrl, "icing1zutaten--einfügen");
   })
   .catch((error) => {
     console.error("Fehler beim Fetchen der Muffin-Daten:", error);
@@ -61,56 +67,62 @@ fetch("/icings")
 function change_muffin(button) {
   switch (button) {
     case 1:
-      i--;
-      if (i < 0) {
-        i = icing.length - 1;
+      icing_zahl++;
+      if (icing_zahl < 0) {
+        icing_zahl = icing.length - 1;
       }
-      document.getElementById("icing-home").src = icing[i].imageUrl;
-      document.getElementById("text-icing").textContent = icing[i].name;
+      document.getElementById("icing-home").src = icing[icing_zahl].imageUrl;
+      document.getElementById("text-icing").textContent = icing[icing_zahl].name;
+      icing_zutaten_change();
       break;
 
     case 2:
-      i++;
-      if (i > icing.length - 1) {
-        i = 0;
+      icing_zahl++;
+      if (icing_zahl > icing.length - 1) {
+        icing_zahl = 0;
       }
-      document.getElementById("icing-home").src = icing[i].imageUrl;
-      document.getElementById("text-icing").textContent = icing[i].name;
+      document.getElementById("icing-home").src = icing[icing_zahl].imageUrl;
+      document.getElementById("text-icing").textContent = icing[icing_zahl].name;
+      icing_zutaten_change();
       break;
 
     case 3:
-      i--;
-      if (i < 0) {
-        i = topping.length - 1;
+      topping_zahl--;
+      if (topping_zahl < 0) {
+        topping_zahl = topping.length - 1;
       }
-      document.getElementById("topping-home").src = topping[i].imageUrl;
-      document.getElementById("text-topping").textContent = topping[i].name;
+      document.getElementById("topping-home").src = topping[topping_zahl].imageUrl;
+      document.getElementById("text-topping").textContent = topping[topping_zahl].name;
+      topping_zutaten_change();
       break;
 
     case 4:
-      i++;
-      if (i > topping.length - 1) {
-        i = 0;
+      topping_zahl++;
+      if (topping_zahl > topping.length - 1) {
+        topping_zahl= 0;
       }
-      document.getElementById("topping-home").src = topping[i].imageUrl;
-      document.getElementById("text-topping").textContent = topping[i].name;
+      document.getElementById("topping-home").src = topping[topping_zahl].imageUrl;
+      document.getElementById("text-topping").textContent = topping[topping_zahl].name;
+      topping_zutaten_change();
       break;
     case 5:
-      i--;
-      if (i < 0) {
-        i = muffin.length - 1;
+      muffin_zahl--;
+      if (muffin_zahl < 0) {
+        muffin_zahl = muffin.length - 1;
       }
-      document.getElementById("muffin-home").src = muffin[i].imageUrl;
-      document.getElementById("text-muffin").textContent = muffin[i].name;
+      document.getElementById("muffin-home").src = muffin[muffin_zahl].imageUrl;
+      document.getElementById("text-muffin").textContent = muffin[muffin_zahl].name;
+      muffin_zutaten_change();
 
       break;
     case 6:
-      i++;
-      if (i > muffin.length - 1) {
-        i = 0;
+      muffin_zahl++;
+      if (muffin_zahl > muffin.length - 1) {
+        muffin_zahl = 0;
       }
-      document.getElementById("muffin-home").src = muffin[i].imageUrl;
-      document.getElementById("text-muffin").textContent = muffin[i].name;
+      document.getElementById("muffin-home").src = muffin[muffin_zahl].imageUrl;
+      document.getElementById("text-muffin").textContent = muffin[muffin_zahl].name;
+      muffin_zutaten_change();
       break;
 
     default:
@@ -118,14 +130,68 @@ function change_muffin(button) {
   }
 }
 
+
+
+
+function topping_zutaten_change() {
+  let mufifnzutaten = document.getElementById("topping1zutaten--einfügen");
+  mufifnzutaten.removeChild(mufifnzutaten.firstChild);
+  txtInListeEinfuegen(topping[topping_zahl].ingredientsUrl, "topping1zutaten--einfügen");
+}
+
+function icing_zutaten_change() {
+  let mufifnzutaten = document.getElementById("icing1zutaten--einfügen");
+  mufifnzutaten.removeChild(mufifnzutaten.firstChild);
+  txtInListeEinfuegen(icing[icing_zahl].ingredientsUrl, "icing1zutaten--einfügen");
+}
+function muffin_zutaten_change() {
+  let mufifnzutaten = document.getElementById("muffin1zutaten--einfügen");
+  mufifnzutaten.removeChild(mufifnzutaten.firstChild);
+  txtInListeEinfuegen(muffin[muffin_zahl].ingredientsUrl, "muffin1zutaten--einfügen");
+}
+
+function txtInListeEinfuegen(txtDatei, einfuegeID) {
+  // Funktion fügt txt Datei in html, bei einem bestimmten Element als Liste ein
+  fetch(txtDatei)
+    .then((response) => response.text())
+    .then((inhalt) => {
+      const zeilen = inhalt.split("\n");
+      // "zeilen" beinhaltet alle Zeilen aus der txt-Datei
+      const einfuegePunkt = document.getElementById(einfuegeID);
+      // definiert Ort im HTML Dokument, wo die Liste eingefügt werden soll
+
+      if (!einfuegePunkt) {
+        console.error("Einfüge Punkt nicht gefunden");
+        return;
+      }
+
+      let liste = document.createElement("ul");
+
+      for (let i = 0; i < 3 && i < zeilen.length; i++) {
+        const line = zeilen[i];
+        if (line.trim() === "") {
+          einfuegePunkt.appendChild(liste);
+          liste = document.createElement("ul");
+        } else {
+          const li = document.createElement("li");
+          li.textContent = line.trim();
+          liste.appendChild(li);
+        }
+      }
+      einfuegePunkt.appendChild(liste);
+    })
+
+    .catch((error) => console.error("Fehler beim Laden der Datei:", error));
+}
+
 function safe_muffin() {}
 
 // muffin Speichern (noch nicht getestet)
 
 function safe_muffin() {
-  let icing_id = icing[i].id;
-  let topping_id = topping[i].id;
-  let muffinBase_id = muffin[i].id;
+  let icing_id = icing[icing_zahl].id;
+  let topping_id = topping[topping_zahl].id;
+  let muffinBase_id = muffin[muffin_zahl].id;
 
   /* console.log(icing);  */
 
