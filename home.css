@@ -8,6 +8,8 @@ main {
   /* height: 70vh; */
 }
 
+
+
 hr {
     border-radius: 5px;
     margin-left: 10px;
@@ -27,7 +29,7 @@ hr {
 /*   margin-right: auto;
   margin-left: auto; */
 
-  margin-left: 5%;
+  margin-left: 2%;
 }
 
 .muffin-container {
@@ -37,8 +39,8 @@ hr {
   position: relative;
   /*   margin: auto; */
 
-  left: 50%;
-  transform: translateX(-50%);
+  left: 18%;
+  /* transform: translateX(-50%); */
 }
 
 .img-muffin,
@@ -226,3 +228,14 @@ height: 450px;
   width: inherit;
 
 }
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+
+
+}
+
+@media  screen and (max-width: 767px) {
+ }
