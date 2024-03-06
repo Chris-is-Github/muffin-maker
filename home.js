@@ -67,7 +67,7 @@ fetch("/icings")
 function change_muffin(button) {
   switch (button) {
     case 1:
-      icing_zahl++;
+      icing_zahl--;
       if (icing_zahl < 0) {
         icing_zahl = icing.length - 1;
       }
