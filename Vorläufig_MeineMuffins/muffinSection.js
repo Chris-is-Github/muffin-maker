@@ -38,7 +38,7 @@ function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
     const h2 = document.createElement('h2');
     h2.className = 'name--style';
     h2.id = `name${idSuffix}__titel`;
-    h2.textContent = muffins[muffinID].name + icings[icingID].name + toppings[toppingID].name;
+    h2.textContent = muffins[muffinID].name + " " + icings[icingID].name + " " + toppings[toppingID].name;
     divName.appendChild(h2);
 
     const button = document.createElement('button');
@@ -187,7 +187,8 @@ async function fetchData() {
         icings = icingData.icings;
 
         console.log(muffins)
-        createMuffinSection(1, 3, 2, 1);
+        
+        createMuffinSection(1, 3, 3, 4);
     } catch (error) {
         console.error('Fehler beim Laden der Daten:', error);
     }
