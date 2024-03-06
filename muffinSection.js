@@ -117,7 +117,6 @@ function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
     const divDropDown = document.createElement('div');
     divDropDown.className = 'dropDown';
     divDropDown.id = `muffin${idSuffix}__dropDown`;
-    section.appendChild(divDropDown);
 
     // Zutaten-Container
     const zutaten = document.createElement('div');
@@ -194,8 +193,10 @@ function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
     anleitungListe.append(muffinAnleitungHeader, muffinAnleitungSection, icingAnleitungHeader, icingAnleitungSection, toppingAnleitungHeader, toppingAnleitungSection);
     anleitung.append(anleitungTitel, anleitungListe);
 
-    section.append(zutaten);
-    section.append(anleitung);
+    divDropDown.append(zutaten);
+    divDropDown.append(anleitung);
+
+    section.appendChild(divDropDown);
 
     document.body.appendChild(section);
 
@@ -230,11 +231,18 @@ async function fetchData() {
         const icingData = await icingResponse.json();
         icings = icingData.icings;
 
-        console.log(icings)
+        const muffinUserDataResponse = await fetch('/getMyMuffins');
+        if (!muffinUserDataResponse.ok) throw new Error('Netzwerkantwort für Icings nicht ok');
+        const muffinUserData = await muffinUserDataResponse.json();
+        const muffinUser = muffinUserData.muffins;
 
-        createMuffinSection(1, 3, 2, 4);
-        createMuffinSection(2, 3, 2, 4);
-        createMuffinSection(3, 3, 2, 4);
+
+        Object.entries(muffinUser).forEach(([key, muffin]) => {
+            createMuffinSection(key, muffin.muffinBase_id, muffin.icing_id, muffin.topping_id);
+        });
+
+        
+    
     } catch (error) {
         console.error('Fehler beim Laden der Daten:', error);
     }

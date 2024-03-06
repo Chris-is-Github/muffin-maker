@@ -32,6 +32,13 @@ h1{
     text-shadow: 2px 1px 4px #696565;
 }
 
+hr {
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 8px solid #EFE5DC;
+}
+
 #nav-bar {
     height: 10vh;
     background-color: #252422;
@@ -55,26 +62,26 @@ h1{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: #602437;
-    flex-basis: 30%;
+    background-color: #252422;
+    flex-basis: 25%;
     height: 100%;
 }
 
 .logo-wrap {
     display: inline-block;
-    width: 150px;
+    width: 80px;
     height: 50px;
-    background: url('Bilder/Logo/logotest.png') no-repeat center center;
-    background-size: 150px 50px;
+    background: url('Bilder/Logo/Logo.png') no-repeat center center;
+    background-size: 85px 85px;
     transition: background-size 0.3s ease-in-out;
 }
 
 .logo-wrap:hover {
-    background-size: 158px 53px;
+    background-size: 90px 90px;
 }
 
 #nav-bar .nav-login {
-    margin-left: 30%;
+    margin-left: 35%;
 }
 
 #nav-bar a:hover,
@@ -85,12 +92,20 @@ h1{
 
 
 
-/* Login/Register / TBD */
+/* Login/Register */
+
+.form-wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 60vh;
+    gap: 20px;
+}
 
 .form-container {
-    width: 80%;
+    width: calc(50% - 10px);
     max-width: 400px;
-    margin: 100px auto;
+    margin-right: 100px;
     margin-bottom: 100px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -104,7 +119,7 @@ h1{
     gap: 10px;
 }
 
-/* button {
+ .form-button {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -114,6 +129,14 @@ h1{
     font-family: 'Merienda', cursive;
 }
 
-button:hover {
+.form-button:hover {
     background-color: #402437;
-} */
+} 
+
+.form-box input {
+    width: 95%;
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}

@@ -184,7 +184,6 @@ function txtInListeEinfuegen(txtDatei, einfuegeID) {
     .catch((error) => console.error("Fehler beim Laden der Datei:", error));
 }
 
-function safe_muffin() {}
 
 // muffin Speichern (noch nicht getestet)
 
@@ -192,8 +191,6 @@ function safe_muffin() {
   let icing_id = icing[icing_zahl].id;
   let topping_id = topping[topping_zahl].id;
   let muffinBase_id = muffin[muffin_zahl].id;
-
-  /* console.log(icing);  */
 
   console.log(topping_id);
   console.log(muffinBase_id);

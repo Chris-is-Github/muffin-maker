@@ -3,6 +3,18 @@
     "password": "chris"
   },
   "cris": {
-    "password": "123"
+    "password": "123",
+    "muffins": {
+      "1": {
+        "icing_id": 0,
+        "topping_id": 0,
+        "muffinBase_id": 0
+      },
+      "2": {
+        "icing_id": 1,
+        "topping_id": 0,
+        "muffinBase_id": 0
+      }
+    }
   }
 }
