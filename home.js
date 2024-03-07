@@ -21,11 +21,10 @@ fetch("/muffins")
     muffin = data.muffins;
     document.getElementById("muffin-home").src = muffin[0].imageUrl;
     document.getElementById("text-muffin").textContent = muffin[0].name;
-    console.log(muffin);
     txtInListeEinfuegen(muffin[0].ingredientsUrl, "muffin1zutaten--einfügen");
   })
   .catch((error) => {
-    console.error("Fehler beim Fetchen der Muffin-Daten:", error);
+    showAlert("Fehler beim Fetchen der Muffin-Daten:", error);
   });
 
 fetch("/toppings")
@@ -39,11 +38,10 @@ fetch("/toppings")
     topping = data.toppings;
     document.getElementById("topping-home").src = topping[0].imageUrl;
     document.getElementById("text-topping").textContent = topping[0].name;
-    console.log(topping);
     txtInListeEinfuegen(topping[0].ingredientsUrl, "topping1zutaten--einfügen");
   })
   .catch((error) => {
-    console.error("Fehler beim Fetchen der Muffin-Daten:", error);
+    showAlert("Fehler beim Fetchen der Muffin-Daten:", error);
   });
 
 fetch("/icings")
@@ -55,13 +53,12 @@ fetch("/icings")
   })
   .then((data) => {
     icing = data.icings;
-    console.log(icing);
     document.getElementById("icing-home").src = icing[0].imageUrl;
     document.getElementById("text-icing").textContent = icing[0].name;
     txtInListeEinfuegen(icing[0].ingredientsUrl, "icing1zutaten--einfügen");
   })
   .catch((error) => {
-    console.error("Fehler beim Fetchen der Muffin-Daten:", error);
+    showAlert("Fehler beim Fetchen der Muffin-Daten:", error);
   });
 
 function change_muffin(button) {
@@ -181,20 +178,14 @@ function txtInListeEinfuegen(txtDatei, einfuegeID) {
       einfuegePunkt.appendChild(liste);
     })
 
-    .catch((error) => console.error("Fehler beim Laden der Datei:", error));
+    .catch((error) => showAlert("Fehler beim Laden der Datei:", error));
 }
 
-
-// muffin Speichern (noch nicht getestet)
 
 function safe_muffin() {
   let icing_id = icing[icing_zahl].id;
   let topping_id = topping[topping_zahl].id;
   let muffinBase_id = muffin[muffin_zahl].id;
-
-  console.log(topping_id);
-  console.log(muffinBase_id);
-  console.log(icing_id);
 
   const requestOptions = {
     method: "POST",
@@ -205,8 +196,14 @@ function safe_muffin() {
 
   fetch("/addMuffin", requestOptions)
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      if (data.success) {
+        showAlert("Muffin erfolgreich hinzugefügt!");
+      } else {
+        showAlert("Fehler beim Hinzufügen des Muffins" + ": " + data.message);
+      }
+    })
     .catch((error) =>
-      console.error("Fehler beim Hinzufügen des Muffins:", error)
+      showAlert("Fehler beim Hinzufügen des Muffins:", error)
     );
 }

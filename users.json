@@ -11,8 +11,13 @@
         "muffinBase_id": 0
       },
       "2": {
-        "icing_id": 1,
+        "icing_id": 2,
         "topping_id": 0,
+        "muffinBase_id": 0
+      },
+      "3": {
+        "icing_id": 0,
+        "topping_id": 2,
         "muffinBase_id": 0
       }
     }

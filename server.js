@@ -63,6 +63,20 @@ app.post('/login', (req, res) => {
     res.json({ success: true, message: 'Erfolgreich eingeloggt!', username: username });
 });
 
+app.get('/getlogged', (req, res) => {
+  if (req.session.loggedin) {
+      res.send(req.session.username);
+  } else {
+      res.send('Login');
+  }
+});
+
+app.get('/logout', (req, res) => {
+  req.session.destroy(() => {
+      res.redirect('/');
+  });
+});
+
 
 //Muffin Objekt
 function getNamesFromFiles(folder, prefix) {
@@ -149,7 +163,7 @@ function getNamesFromFiles(folder, prefix) {
 
             res.json({ success: true, message: 'Muffin-Daten hinzugefügt.' });
         } else {
-            res.json({ success: false, message: 'Dieser Muffin existiert bereits.' });
+            res.json({ success: false, message: 'Dieser Muffin wurde bereits gespeichert.' });
         }
     } else {
         res.json({ success: false, message: 'Nicht eingeloggt.' });

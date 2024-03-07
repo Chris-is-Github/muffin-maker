@@ -21,14 +21,11 @@ body {
 
 h1{
     font-size: 75px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center  ;
-
-   /*  font-family: "Pacifico", cursive; */
+    font-family: "Pacifico", cursive;
     color: #602437;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: -10px;
+    margin-bottom: -10px;
     text-shadow: 2px 1px 4px #696565;
 }
 
@@ -42,7 +39,6 @@ hr {
 #nav-bar {
     height: 10vh;
     background-color: #252422;
-    overflow: hidden;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -80,9 +76,6 @@ hr {
     background-size: 90px 90px;
 }
 
-#nav-bar .nav-login {
-    margin-left: 35%;
-}
 
 #nav-bar a:hover,
 #nav-bar a:focus {
@@ -90,6 +83,29 @@ hr {
     border-radius: 15px;
 }
 
+
+.nav-login-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 35%;
+}
+
+.nav-login-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #252422;
+    z-index: 1;
+    border-radius: 15px; 
+    top: 105%; 
+    margin-top: 5px; 
+}
+.nav-login-dropdown-content a {
+    display: block;
+}
+
+.nav-login-dropdown:hover .nav-login-dropdown-content {
+    display: block;
+}
 
 
 /* Login/Register */
