@@ -8,15 +8,12 @@ main {
   /* height: 70vh; */
 }
 
-
-
 hr {
-    border-radius: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 8px solid #EFE5DC;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 8px solid #efe5dc;
 }
-
 
 .center {
   position: relative;
@@ -26,7 +23,7 @@ hr {
   width: 125vh;
   padding-top: 100px;
   display: block;
-/*   margin-right: auto;
+  /*   margin-right: auto;
   margin-left: auto; */
 
   margin-left: 2%;
@@ -110,7 +107,7 @@ hr {
   border: none;
   background-color: #efe5dc;
   cursor: pointer;
-  font-family: 'Merienda', cursive;
+  font-family: "Merienda", cursive;
   border-radius: 20px;
 }
 
@@ -123,22 +120,13 @@ hr {
 .first-layer button:active img,
 .second-layer button:active img,
 .third-layer button:active img {
-    
-        filter: opacity(100%);
-        
-        
-      }
-.first-layer button:active ,
+  filter: opacity(100%);
+}
+.first-layer button:active,
 .second-layer button:active,
-.third-layer button:active  {
-    
-        transform: translateY(4px);
-        
-        
-      }
-
-
-
+.third-layer button:active {
+  transform: translateY(4px);
+}
 
 .pfeil-rechts-oben,
 .pfeil-rechts-mitte,
@@ -152,8 +140,6 @@ hr {
   margin-left: 20px;
 }
 
-
-
 .text {
   height: inherit;
 
@@ -165,108 +151,78 @@ hr {
   background: none;
   color: #602437;
 
-
   font-family: "Merienda", cursive;
 }
 
 #safe-muffin {
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background-color: #602437;
-    color: white;
-    cursor: pointer;
-    font-family: 'Merienda', cursive;
-   
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #602437;
+  color: white;
+  cursor: pointer;
+  font-family: "Merienda", cursive;
 }
 
-
-
 #safe-muffin:hover {
-    background-color: #402437;
-} 
+  background-color: #402437;
+}
 
-
-
-.zutaten
-{
-
+.zutaten {
   width: 80%;
   margin-right: 100%;
   margin-left: 10%;
-  
-
 }
 
-.zutatenliste{
-
-
+.zutatenliste {
 }
 
-.rezepte{
-
-
-
-  
- 
- 
-  width:25% ;
+.rezepte {
+  width: 25%;
   float: right;
-height: inherit;
-margin-right: 2%;
-
+  height: inherit;
+  margin-right: 2%;
 }
 
-#muffin1dropDown{
-
-height: 450px;
-
+#muffin1dropDown {
+  height: 450px;
 }
 
-#topping1zutaten--einfügen{
-
+#topping1zutaten--einfügen {
   width: inherit;
-
 }
-
-
-
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
- 
   .rezepte,
   .muffin-container,
   .first-layer,
   .second-layer,
-  .third-layer{
+  .third-layer {
     transform: scale(0.7);
-   
-	transform-origin:top left;
+
+    transform-origin: top left;
   }
 
-  .muffin-container{
+  .muffin-container {
     left: 12%;
   }
 
-  .first-layer{
-   top: 280px;
+  .first-layer {
+    top: 280px;
   }
 
-  .second-layer{
+  .second-layer {
     top: 385px;
   }
 
-  .third-layer{
+  .third-layer {
     top: 490px;
   }
 
-  .rezepte{
-
+  .rezepte {
+    top: 500px;
   }
-
 }
 
-@media  screen and (max-width: 767px) {
-
- 
- }
+@media screen and (max-width: 767px) {
+}
