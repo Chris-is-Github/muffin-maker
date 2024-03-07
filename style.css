@@ -19,6 +19,10 @@ body {
     padding: 0;
 }
 
+.sitecontainer{
+    min-height: calc(100vh - 70px);
+}
+
 h1{
     font-size: 75px;
     text-align: center  ;
@@ -107,6 +111,15 @@ hr {
     display: block;
 }
 
+.footer {
+    position: relative;
+    width: 100%;
+    height: 50px; 
+    background-color: #f2f2f2; 
+    color: rgb(84, 84, 84);
+    text-align: center;
+    padding: 10px 0;
+}
 
 /* Login/Register */
 

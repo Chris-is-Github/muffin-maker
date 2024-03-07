@@ -19,6 +19,31 @@
         "icing_id": 0,
         "topping_id": 2,
         "muffinBase_id": 0
+      },
+      "4": {
+        "icing_id": 3,
+        "topping_id": 0,
+        "muffinBase_id": 0
+      },
+      "5": {
+        "icing_id": 0,
+        "topping_id": 0,
+        "muffinBase_id": 1
+      },
+      "6": {
+        "icing_id": 0,
+        "topping_id": 0,
+        "muffinBase_id": 2
+      },
+      "7": {
+        "icing_id": 0,
+        "topping_id": 0,
+        "muffinBase_id": 3
+      },
+      "8": {
+        "icing_id": 0,
+        "topping_id": 0,
+        "muffinBase_id": 4
       }
     }
   }

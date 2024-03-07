@@ -64,6 +64,7 @@ function buttonListener(buttonID, bildID, muffinDropDownID){
 }
 
 function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
+    const sitecontainer = document.getElementById("sitecontainer");
     const section = document.createElement('section');
     section.className = 'muffin';
     section.id = `muffin${idSuffix}`;
@@ -198,7 +199,7 @@ function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
 
     section.appendChild(divDropDown);
 
-    document.body.appendChild(section);
+    sitecontainer.appendChild(section);
 
     buttonListener(`buttonDropDown${idSuffix}`, `pfeilBild${idSuffix}`, `muffin${idSuffix}__dropDown`)
 
