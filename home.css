@@ -9,11 +9,12 @@ main {
 }
 
 hr {
-  border-radius: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border: 8px solid #efe5dc;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 8px solid #EFE5DC;
 }
+
 
 .center {
   position: relative;

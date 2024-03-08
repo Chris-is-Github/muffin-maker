@@ -4,56 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muffin-Maker</title>
+    <title>Login</title>
     <link rel="Stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="login.js"></script>
 </head>
 
 <body>
+    <div class="sitecontainer">
     <nav id="nav-bar">
         <div class="nav-home">
             <a class="logo-wrap" href="home.html"></a>
         </div>
         <a class="nav-link" href="meineMuffins.html" style="margin-left: 25px;">Meine Muffins</a>
-        <a class="nav-link" href="muffinDW.html">Muffin der Woche</a>
-        <a class="nav-login" href="login.html">Login</a>
+        <a class="nav-link" href="muffinDerWoche.html">Muffin der Woche</a>
+        <div class="nav-login-dropdown">
+            <a class="nav-login" href="login.html">Login</a>
+        </div>
     </nav>
+
+    <div class="titel--grid seitenTitel">
+        <hr>
+        <h1 >Melde Dich An!</h1>
+        <hr>
+    </div>
+
     <main class="content">
-        <div class="form-container">
-            <h2>Registrierung</h2>
-            <form action="/register" method="post" class="form-box">
-                <div>
-                    <label for="reg-username">Benutzername:</label>
-                    <input type="text" id="reg-username" name="username" required>
-                </div>
-                <div>
-                    <label for="reg-password">Passwort:</label>
-                    <input type="password" id="reg-password-1" name="password" required>
-                </div>
-                <div>
-                    <label for="reg-password">Passwort Wiederholen:</label>
-                    <input type="password" id="reg-password-2" name="password2" required>
-                </div>
-                <button type="submit">Registrieren</button>
-            </form>
-        </div>
+        <div class="form-wrapper">
 
-        <div class="form-container">
-            <h2>Einloggen</h2>
-            <form action="/login" method="post" class="form-box">
-                <div>
-                    <label for="login-username">Benutzername:</label>
-                    <input type="text" id="login-username" name="username" required>
-                </div>
-                <div>
-                    <label for="login-password">Passwort:</label>
-                    <input type="password" id="login-password" name="password" required>
-                </div>
-                <button type="submit">Einloggen</button>
-            </form>
-        </div>
+            <div class="form-container">
+                <h2>Einloggen</h2>
+                <form action="/login" method="post" class="form-box">
+                    <div>
+                        <input type="text" id="login-username" name="username" placeholder="Benutzername" required>
+                    </div>
+                    <div>
+                        <input type="password" id="login-password" name="password" placeholder="Password" required>
+                    </div>
+                    <button class="form-button" type="submit">Einloggen</button>
+                </form>
+            </div>
 
+            <div class="form-container">
+                <h2>Registrierung</h2>
+                <form action="/register" method="post" class="form-box">
+                    <div>
+                        <input type="text" id="reg-username" name="username" placeholder="Benutzername" required>
+                    </div>
+                    <div>
+                        <input type="password" id="reg-password-1" name="password" placeholder="Passwort" required>
+                    </div>
+                    <div>
+                        <input type="password" id="reg-password-2" name="password2" placeholder="Passwort Wiederholen" required>
+                    </div>
+                    <button class="form-button" type="submit">Registrieren</button>
+                </form>
+            </div>
+        </div>
     </main>
+</div>
+    <footer class="footer">
+        <p>&copy; 2024 Muffin Maker. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 
 </html>

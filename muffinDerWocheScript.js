@@ -32,10 +32,10 @@ function txtInListeEinfuegen(txtDatei, einfuegeID) {
 }
 
 //Einfügen aller txt Datien an dem jeweiligen Ort
-txtInListeEinfuegen('../Rezepte/Muffin/Muffin_TrippelSchoko_Zutaten.txt', 'muffinDerWoche--zutaten--muffin');
-txtInListeEinfuegen('../Rezepte/Icing/Icing_Erdbeer_Zutaten.txt', 'muffinDerWoche--zutaten--icing' )
-txtInListeEinfuegen('../Rezepte/Topping/Topping_ZweiSchoko_Zutaten.txt', 'muffinDerWoche--zutaten--topping')
+txtInListeEinfuegen('Rezepte/Muffin/Muffin_TrippelSchoko_Zutaten.txt', 'muffinDerWoche--zutaten--muffin');
+txtInListeEinfuegen('Rezepte/Icing/Icing_Erdbeer_Zutaten.txt', 'muffinDerWoche--zutaten--icing' )
+txtInListeEinfuegen('Rezepte/Topping/Topping_ZweiSchoko_Zutaten.txt', 'muffinDerWoche--zutaten--topping')
 
-txtInListeEinfuegen('../Rezepte/Muffin/Muffin_TrippelSchoko_Anleitung.txt', 'muffinDerWoche--rezept--muffin');
-txtInListeEinfuegen('../Rezepte/Icing/Icing_Erdbeer_Anleitung.txt', 'muffinDerWoche--rezept--icing' )
-txtInListeEinfuegen('../Rezepte/Topping/Topping_ZweiSchoko_Anleitung.txt', 'muffinDerWoche--rezept--topping')
+txtInListeEinfuegen('Rezepte/Muffin/Muffin_TrippelSchoko_Anleitung.txt', 'muffinDerWoche--rezept--muffin');
+txtInListeEinfuegen('Rezepte/Icing/Icing_Erdbeer_Anleitung.txt', 'muffinDerWoche--rezept--icing' )
+txtInListeEinfuegen('Rezepte/Topping/Topping_ZweiSchoko_Anleitung.txt', 'muffinDerWoche--rezept--topping')

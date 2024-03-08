@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="home.js"></script>
+
 
 
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muffin</title>
+    <title>Muffin Maker</title>
     <link rel="Stylesheet" href="home.css"> </link>
     <link rel="Stylesheet" href="style.css"> </link>
-    
-    <link rel="stylesheet" href="Vorläufig_MeineMuffins/style_meine_muffins_V1.css">
-    
+    <link rel="stylesheet" href="meineMuffinsStyle.css">
+    <script src="script.js"></script>
+    <script src="home.js"></script>
 </head>
 
 <body>
+    <div class="sitecontainer">
     <nav id="nav-bar">
         <div class="nav-home">
             <a class="logo-wrap" href="home.html"></a>
         </div>
         <a class="nav-link" href="meineMuffins.html" style="margin-left: 25px;">Meine Muffins</a>
-        <a class="nav-link" href="muffinDW.html">Muffin der Woche</a>
-        <a class="nav-login" href="login.html">Login</a>
+        <a class="nav-link" href="muffinDerWoche.html">Muffin der Woche</a>
+        <div class="nav-login-dropdown">
+            <a class="nav-login" href="login.html">Login</a>
+        </div>
     </nav>
 
     <div class="titel--grid seitenTitel">
@@ -124,7 +127,11 @@
 
 
     </main>
-   
+</div>
+    <footer class="footer">
+        <p>&copy; 2024 Muffin Maker. Alle Rechte vorbehalten.</p>
+    </footer>
+
 </body>
 
 </html>

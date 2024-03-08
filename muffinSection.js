@@ -2,7 +2,69 @@ let muffins = [];
 let icings = [];
 let toppings = [];
 
+function txtInListeEinfuegen(txtDatei, einfuegeID) {
+    // Funktion fügt txt Datei in html, bei einem bestimmten Element als Liste ein
+    fetch(txtDatei)
+        .then(response => response.text())
+        .then(inhalt => {
+            const zeilen = inhalt.split('\n');
+            // "zeilen" beinhaltet alle Zeilen aus der txt-Datei
+            const einfuegePunkt = document.getElementById(einfuegeID);
+            // definiert Ort im HTML Dokument, wo die Liste eingefügt werden soll
+
+            if (!einfuegePunkt) {
+                console.error('Einfüge Punkt nicht gefunden');
+                return;
+            }
+
+            let liste = document.createElement('ul');
+            zeilen.forEach(line => {
+                // loop geht durch jede Zeile durch und fügt jede Zeile in ein <li> Element,
+                // es sei denn die Zeile ist leer, dann wird eine neue Liste angefangen
+                if (line.trim() === '') {
+                    einfuegePunkt.appendChild(liste);
+                    liste = document.createElement('ul');
+                } else {
+                    const li = document.createElement('li');
+                    li.textContent = line.trim();
+                    liste.appendChild(li);
+                }
+            });
+            einfuegePunkt.appendChild(liste);
+        })
+        .catch(error => console.error('Fehler beim Laden der Datei:', error));
+}
+
+function buttonListener(buttonID, bildID, muffinDropDownID){
+    const myButton = document.getElementById(buttonID);
+    myButton.addEventListener('click', function() {
+        // Listener wartet auf einen Klick auf den Pfeil Button um dann die Anleitung und die Zutaten des Muffins einzublenden
+        const pfeilBild = document.getElementById(bildID);
+        const dropDownContent = document.getElementById(muffinDropDownID);
+
+
+        let styleDropDownContent = window.getComputedStyle(dropDownContent);
+        // bekommt aktueller CSS Style von den Zutaten
+        if (styleDropDownContent.display === 'none') {
+            // wenn die Zutaten nicht zu sehen sind, werden die Zutaten & Anleitung angezeigt
+            dropDownContent.style.display = 'grid';
+
+
+            pfeilBild.classList.add('pfeilButton__bild--unten');
+            // verwendet das Style 'pfeilButton__bild--unten' auf den Button, um ihn nach untern zu drehen
+        } else {
+            // wenn die Zutaten zu sehen sind, werden die Zutaten & Anleitung wieder versteckt
+            dropDownContent.style.display = 'none';
+
+
+            pfeilBild.classList.remove('pfeilButton__bild--unten');
+            // nimmt das Style 'pfeilButton__bild--unten' weider weg, um den Button zurückzudrehen
+        }
+    });
+}
+
 function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
+    const sitecontainer = document.getElementById("sitecontainer");
     const section = document.createElement('section');
     section.className = 'muffin';
     section.id = `muffin${idSuffix}`;
@@ -56,7 +118,6 @@ function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
     const divDropDown = document.createElement('div');
     divDropDown.className = 'dropDown';
     divDropDown.id = `muffin${idSuffix}__dropDown`;
-    section.appendChild(divDropDown);
 
     // Zutaten-Container
     const zutaten = document.createElement('div');
@@ -133,41 +194,26 @@ function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
     anleitungListe.append(muffinAnleitungHeader, muffinAnleitungSection, icingAnleitungHeader, icingAnleitungSection, toppingAnleitungHeader, toppingAnleitungSection);
     anleitung.append(anleitungTitel, anleitungListe);
 
-    document.body.appendChild(section);
+    divDropDown.append(zutaten);
+    divDropDown.append(anleitung);
+
+    section.appendChild(divDropDown);
+
+    sitecontainer.appendChild(section);
+
+    buttonListener(`buttonDropDown${idSuffix}`, `pfeilBild${idSuffix}`, `muffin${idSuffix}__dropDown`)
+
+    txtInListeEinfuegen(muffins[muffinID].recipeUrl, `muffin${idSuffix}__zutaten--einfügen`);
+    txtInListeEinfuegen(icings[icingID].recipeUrl, `icing${idSuffix}__zutaten--einfügen`)
+    txtInListeEinfuegen(toppings[toppingID].recipeUrl, `topping${idSuffix}__zutaten--einfügen`)
+
+    txtInListeEinfuegen(muffins[muffinID].ingredientsUrl, `muffin${idSuffix}__anleitung--einfügen`)
+    txtInListeEinfuegen(icings[icingID].ingredientsUrl, `icing${idSuffix}__anleitung--einfügen`)
+    txtInListeEinfuegen(toppings[toppingID].ingredientsUrl, `topping${idSuffix}__anleitung--einfügen`)
+
 }
 
-function txtInListeEinfuegen(txtDatei, einfuegeID) {
-    // Funktion fügt txt Datei in html, bei einem bestimmten Element als Liste ein
-    fetch(txtDatei)
-        .then(response => response.text())
-        .then(inhalt => {
-            const zeilen = inhalt.split('\n');
-            // "zeilen" beinhaltet alle Zeilen aus der txt-Datei
-            const einfuegePunkt = document.getElementById(einfuegeID);
-            // definiert Ort im HTML Dokument, wo die Liste eingefügt werden soll
 
-            if (!einfuegePunkt) {
-                console.error('Einfüge Punkt nicht gefunden');
-                return;
-            }
-
-            let liste = document.createElement('ul');
-            zeilen.forEach(line => {
-                // loop geht durch jede Zeile durch und fügt jede Zeile in ein <li> Element,
-                // es sei denn die Zeile ist leer, dann wird eine neue Liste angefangen
-                if (line.trim() === '') {
-                    einfuegePunkt.appendChild(liste);
-                    liste = document.createElement('ul');
-                } else {
-                    const li = document.createElement('li');
-                    li.textContent = line.trim();
-                    liste.appendChild(li);
-                }
-            });
-            einfuegePunkt.appendChild(liste);
-        })
-        .catch(error => console.error('Fehler beim Laden der Datei:', error));
-}
 
 async function fetchData() {
     try {
@@ -186,21 +232,24 @@ async function fetchData() {
         const icingData = await icingResponse.json();
         icings = icingData.icings;
 
-        console.log(muffins)
+        const muffinUserDataResponse = await fetch('/getMyMuffins');
+        if (!muffinUserDataResponse.ok) throw new Error('Netzwerkantwort für Icings nicht ok');
+        const muffinUserData = await muffinUserDataResponse.json();
+        const muffinUser = muffinUserData.muffins;
+
+
+        Object.entries(muffinUser).forEach(([key, muffin]) => {
+            createMuffinSection(key, muffin.muffinBase_id, muffin.icing_id, muffin.topping_id);
+        });
+
         
-        createMuffinSection(1, 3, 3, 4);
+    
     } catch (error) {
         console.error('Fehler beim Laden der Daten:', error);
     }
 }
 
-/* txtInListeEinfuegen(muffins[ID].recipeUrl, `muffin${idSuffix}__zutaten--einfügen`);
-txtInListeEinfuegen(icings[ID].recipeUrl, `icing${idSuffix}__zutaten--einfügen`)
-txtInListeEinfuegen(toppings[ID].recipeUrl, `topping${idSuffix}__zutaten--einfügen`)
 
-txtInListeEinfuegen(muffins[ID].ingredientsUrl, `muffin${idSuffix}__anleitung--einfügen`)
-txtInListeEinfuegen(muffins[ID].ingredientsUrl, `icing${idSuffix}__anleitung--einfügen` )
-txtInListeEinfuegen(muffins[ID].ingredientsUrl, `topping${idSuffix}__anleitung--einfügen`) */
 
 
 fetchData();

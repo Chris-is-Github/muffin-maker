@@ -9,6 +9,7 @@ const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.json());
 app.use('/', express.static(__dirname + '/'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/home.html');
@@ -22,7 +23,7 @@ app.use(session({
   secret: 'muffinMaker123',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
+  cookie: { secure: false }
 }));
 
 //Login//Registrierung
@@ -45,6 +46,7 @@ app.post('/register', (req, res) => {
     fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
     req.session.loggedin = true;
     req.session.username = username;
+
     res.json({ success: true, message: 'Registrierung erfolgreich!' });
 });
 
@@ -57,7 +59,22 @@ app.post('/login', (req, res) => {
 
     req.session.loggedin = true;
     req.session.username = username;
+
     res.json({ success: true, message: 'Erfolgreich eingeloggt!', username: username });
+});
+
+app.get('/getlogged', (req, res) => {
+  if (req.session.loggedin) {
+      res.send(req.session.username);
+  } else {
+      res.send('Login');
+  }
+});
+
+app.get('/logout', (req, res) => {
+  req.session.destroy(() => {
+      res.redirect('/');
+  });
 });
 
 
@@ -121,32 +138,49 @@ function getNamesFromFiles(folder, prefix) {
 
   //Meine Muffins Speichern
   app.post('/addMuffin', (req, res) => {
-    console.log(req.session.loggedin);
     if (req.session.loggedin) {
-        const { icing, topping, muffinBase } = req.body;
+        const { icing_id, topping_id, muffinBase_id } = req.body;
         const username = req.session.username;
 
         if (!users[username].muffins) {
             users[username].muffins = {};
         }
 
+        let muffinExists = false;
+        for (const muffinKey in users[username].muffins) {
+            const muffin = users[username].muffins[muffinKey];
+            if (muffin.icing_id === icing_id && muffin.topping_id === topping_id && muffin.muffinBase_id === muffinBase_id) {
+                muffinExists = true;
+                break;
+            }
+        }
 
-        const numOfMuffins = Object.keys(users[username].muffins).length;
+        if (!muffinExists) {
+            const muffinName = `${Object.keys(users[username].muffins).length + 1}`;
+            users[username].muffins[muffinName] = { icing_id, topping_id, muffinBase_id };
 
-        const muffinName = `muffin${numOfMuffins + 1}`;
+            fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
 
-        users[username].muffins[muffinName] = { icing, topping, muffinBase };
-
-        fs.writeFileSync('./users.json', JSON.stringify(users, null, 2)); // Daten speichern
-
-        res.json({ success: true, message: 'Muffin-Daten hinzugefügt/aktualisiert.' });
+            res.json({ success: true, message: 'Muffin-Daten hinzugefügt.' });
+        } else {
+            res.json({ success: false, message: 'Dieser Muffin wurde bereits gespeichert.' });
+        }
     } else {
         res.json({ success: false, message: 'Nicht eingeloggt.' });
     }
 });
 
 
-//getuserdata
-app.post('/')
+app.get('/getMyMuffins', (req, res) => {
+  if (req.session.loggedin) {
+      const username = req.session.username;
 
-//getlogged
+      if (users[username].muffins) {
+          res.json({ success: true, muffins: users[username].muffins });
+      } else {
+          res.json({ success: false, message: 'Keine Muffins gefunden.' });
+      }
+  } else {
+      res.json({ success: false, message: 'Nicht eingeloggt.' });
+  }
+});
