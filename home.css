@@ -22,7 +22,7 @@ hr {
 
 .muffin-maker {
   width: 125vh;
-  padding-top: 100px;
+  padding-top:75px;
   display: block;
   /*   margin-right: auto;
   margin-left: auto; */
@@ -80,15 +80,15 @@ hr {
 }
 
 .first-layer {
-  top: 300px;
+  top: 250px;
 }
 
 .second-layer {
-  top: 450px;
+  top: 400px;
 }
 
 .third-layer {
-  top: 600px;
+  top: 550px;
 }
 
 .img-pfeil-links {
@@ -185,39 +185,45 @@ hr {
   margin-right: 2%;
 }
 
-#muffin1dropDown {
-  height: 450px;
-}
+
 
 #topping1zutaten--einfügen {
   width: inherit;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 1130px) and (max-width: 1300px) {
   .rezepte,
   .muffin-container,
   .first-layer,
   .second-layer,
   .third-layer {
     transform: scale(0.7);
-
+    
     transform-origin: top left;
   }
 
+  .dopDown{
+    min-width: none;
+  }
+
   .muffin-container {
-    left: 12%;
+    left: 17%;
+    min-width: 1150px;
   }
 
   .first-layer {
-    top: 280px;
+    top: 230px;
+    min-width: 1150px;
   }
 
   .second-layer {
-    top: 385px;
+    top: 335px;
+    min-width: 1150px;
   }
 
   .third-layer {
-    top: 490px;
+    top: 440px;
+    min-width: 1150px;
   }
 
   .rezepte {
@@ -225,5 +231,45 @@ hr {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1129px) {
+
+ .muffin-container,
+  .first-layer,
+  .second-layer,
+  .third-layer {
+    transform: scale(0.5);
+    
+    transform-origin: top left;
+  }
+
+  .rezepte{
+transform: scale(0.7);
+transform-origin: top;
+  }
+
+
+  .muffin-container {
+    left: 17%;
+    min-width: 1150px;
+  }
+
+  .first-layer {
+    top: 230px;
+    min-width: 1150px;
+  }
+
+  .second-layer {
+    top: 335px;
+    min-width: 1150px;
+  }
+
+  .third-layer {
+    top: 440px;
+    min-width: 1150px;
+  }
+
+  .rezepte {
+    top: 500px;
+  }
+
 }
