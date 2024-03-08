@@ -273,3 +273,49 @@ transform-origin: top;
   }
 
 }
+
+
+
+@media screen and (max-width: 800px) {
+
+  .muffin-container,
+   .first-layer,
+   .second-layer,
+   .third-layer {
+     transform: scale(0.3);
+     
+     transform-origin: top left;
+   }
+ 
+   .rezepte{
+ transform: scale(0.5);
+ transform-origin: top;
+   }
+ 
+ 
+   .muffin-container {
+     left: 10%;
+     min-width: 1550px;
+   }
+ 
+   .first-layer {
+     top: 190px;
+     min-width: 1150px;
+   }
+ 
+   .second-layer {
+     top: 235px;
+     min-width: 1150px;
+   }
+ 
+   .third-layer {
+     top: 280px;
+     min-width: 1150px;
+   }
+ 
+   .rezepte {
+     top: 500px;
+   }
+ 
+ }
+ 
