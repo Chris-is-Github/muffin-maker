@@ -64,6 +64,65 @@ main{
     grid-area: mDWZ-m5;
 }
 
+#muffinsDerWochenZuvor--muffin1--h3{
+    grid-area: mDWZ-m1-h3;
+}
+
+#muffinsDerWochenZuvor--muffin1--beschreibung{
+    grid-area: mDWZ-m1-b;
+}
+
+#muffinsDerWochenZuvor--muffin1--images{
+    grid-area: mDWZ-m1-i;
+}
+
+#muffinsDerWochenZuvor--muffin2--h3{
+    grid-area: mDWZ-m2-h3;
+}
+
+#muffinsDerWochenZuvor--muffin2--beschreibung{
+    grid-area: mDWZ-m2-b;
+}
+
+#muffinsDerWochenZuvor--muffin2--images{
+    grid-area: mDWZ-m2-i;
+}
+
+#muffinsDerWochenZuvor--muffin3--h3{
+    grid-area: mDWZ-m3-h3;
+}
+
+#muffinsDerWochenZuvor--muffin3--beschreibung{
+    grid-area: mDWZ-m3-b;
+}
+
+#muffinsDerWochenZuvor--muffin3--images{
+    grid-area: mDWZ-m3-i;
+}
+
+#muffinsDerWochenZuvor--muffin4--h3{
+    grid-area: mDWZ-m4-h3;
+}
+
+#muffinsDerWochenZuvor--muffin4--beschreibung{
+    grid-area: mDWZ-m4-b;
+}
+
+#muffinsDerWochenZuvor--muffin4--images{
+    grid-area: mDWZ-m4-i;
+}
+
+#muffinsDerWochenZuvor--muffin5--h3{
+    grid-area: mDWZ-m5-h3;
+}
+
+#muffinsDerWochenZuvor--muffin5--beschreibung{
+    grid-area: mDWZ-m5-b;
+}
+
+#muffinsDerWochenZuvor--muffin5--images{
+    grid-area: mDWZ-m5-i;
+}
 
 /* LAYOUT FÜR DIE VERSCHIEDENEN BILDSCHIRMGRÖßEN */
 @media screen and (min-width: 1280px){
@@ -79,6 +138,10 @@ main{
             '. main .'
             'footer footer footer';
         font-size: 110%;
+    }
+
+    #muffinDerWoche--SeitenTitel-h1{
+        font-size: 100px;
     }
 
     main{
@@ -115,6 +178,11 @@ main{
         justify-content: center;
     }
 
+    #muffinDerWoche--zutatent{
+        margin-left: 5%;
+    
+    }
+
     #muffinsDerWochenZuvor{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -125,8 +193,54 @@ main{
         'mDWZ-m1 mDWZ-m2 mDWZ-m3 mDWZ-m4 mDWZ-m5';
     }
 
-    #muffinDerWoche--SeitenTitel-h1{
-        font-size: 100px;
+    #muffinsDerWochenZuvor--muffin1{
+        display: grid;
+        grid-template-columns: 4% 15% 1fr 4%;
+        grid-template-areas: 
+        '. mDWZ-m1-h3 mDWZ-m1-h3 .'
+        '. . mDWZ-m1-i .'
+        '. mDWZ-m1-b mDWZ-m1-b .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin2{
+        display: grid;
+        grid-template-columns: 4% 15% 1fr 4%;
+        grid-template-areas: 
+        '. mDWZ-m2-h3 mDWZ-m2-h3 .'
+        '. . mDWZ-m2-i .'
+        '. mDWZ-m2-b mDWZ-m2-b .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin3{
+        display: grid;
+        grid-template-columns: 4% 15% 1fr 4%;
+        grid-template-areas: 
+        '. mDWZ-m3-h3 mDWZ-m3-h3 .'
+        '. . mDWZ-m3-i .'
+        '. mDWZ-m3-b mDWZ-m3-b .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin4{
+        display: grid;
+        grid-template-columns: 4% 15% 1fr 4%;
+        grid-template-areas: 
+        '. mDWZ-m4-h3 mDWZ-m4-h3 .'
+        '. . mDWZ-m4-i .'
+        '. mDWZ-m4-b mDWZ-m4-b .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin5{
+        display: grid;
+        grid-template-columns: 4% 15% 1fr 4%;
+        grid-template-areas: 
+        '. mDWZ-m5-h3 mDWZ-m5-h3 .'
+        '. . mDWZ-m5-i .'
+        '. mDWZ-m5-b mDWZ-m5-b .';
+
     }
 
 }
@@ -145,6 +259,10 @@ main{
             '. main .'
             'footer footer footer';
         font-size: 110%;
+    }
+
+    #muffinDerWoche--SeitenTitel-h1{
+        font-size: 75px;
     }
 
     main{
@@ -186,7 +304,7 @@ main{
     #muffinsDerWochenZuvor{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-auto-rows: max-content;
+        grid-auto-rows: max-content 250px 250px 250px;
         grid-gap: 3%;
         grid-template-areas:
         'mDWZ-ü mDWZ-ü'
@@ -195,8 +313,64 @@ main{
         'mDWZ-m5  .';
     }
 
-    #muffinDerWoche--SeitenTitel-h1{
-        font-size: 75px;
+    #muffinsDerWochenZuvor--muffin1{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 20% 1fr 1fr 28%;
+        grid-template-areas: 
+        '. mDWZ-m1-i . . .'
+        '. mDWZ-m1-i . mDWZ-m1-h3 .'
+        '. mDWZ-m1-i . mDWZ-m1-b .'
+        '. mDWZ-m1-i . . .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin2{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 20% 1fr 1fr 28%;
+        grid-template-areas: 
+        '. mDWZ-m2-i . . .'
+        '. mDWZ-m2-i . mDWZ-m2-h3 .'
+        '. mDWZ-m2-i . mDWZ-m2-b .'
+        '. mDWZ-m2-i . . .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin3{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 20% 1fr 1fr 28%;
+        grid-template-areas: 
+        '. mDWZ-m3-i . . .'
+        '. mDWZ-m3-i . mDWZ-m3-h3 .'
+        '. mDWZ-m3-i . mDWZ-m3-b .'
+        '. mDWZ-m3-i . . .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin4{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 20% 1fr 1fr 28%;
+        grid-template-areas: 
+        '. mDWZ-m4-i . . .'
+        '. mDWZ-m4-i . mDWZ-m4-h3 .'
+        '. mDWZ-m4-i . mDWZ-m4-b .'
+        '. mDWZ-m4-i . . .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin5{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 20% 1fr 1fr 28%;
+        grid-template-areas: 
+        '. mDWZ-m5-i . . .'
+        '. mDWZ-m5-i . mDWZ-m5-h3 .'
+        '. mDWZ-m5-i . mDWZ-m5-b .'
+        '. mDWZ-m5-i . . .';
+
     }
 }
 
@@ -261,7 +435,7 @@ main{
     #muffinsDerWochenZuvor{
         display: grid;
         grid-template-columns: 1fr;
-        grid-auto-rows: max-content;
+        grid-auto-rows: max-content 250px 250px 250px 250px 250px;
         grid-gap: 3%;
         grid-template-areas:
         'mDWZ-ü'
@@ -270,6 +444,66 @@ main{
         'mDWZ-m3'
         'mDWZ-m4'
         'mDWZ-m5';
+    }
+
+    #muffinsDerWochenZuvor--muffin1{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 10% 1fr 1fr 10%;
+        grid-template-areas: 
+        '. mDWZ-m1-i . . .'
+        '. mDWZ-m1-i . mDWZ-m1-h3 .'
+        '. mDWZ-m1-i . mDWZ-m1-b .'
+        '. mDWZ-m1-i . . .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin2{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 10% 1fr 1fr 10%;
+        grid-template-areas: 
+        '. mDWZ-m2-i . . .'
+        '. mDWZ-m2-i . mDWZ-m2-h3 .'
+        '. mDWZ-m2-i . mDWZ-m2-b .'
+        '. mDWZ-m2-i . . .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin3{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 10% 1fr 1fr 10%;
+        grid-template-areas: 
+        '. mDWZ-m3-i . . .'
+        '. mDWZ-m3-i . mDWZ-m3-h3 .'
+        '. mDWZ-m3-i . mDWZ-m3-b .'
+        '. mDWZ-m3-i . . .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin4{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 10% 1fr 1fr 10%;
+        grid-template-areas: 
+        '. mDWZ-m4-i . . .'
+        '. mDWZ-m4-i . mDWZ-m4-h3 .'
+        '. mDWZ-m4-i . mDWZ-m4-b .'
+        '. mDWZ-m4-i . . .';
+
+    }
+
+    #muffinsDerWochenZuvor--muffin5{
+        display: grid;
+        grid-template-columns: 1% 27% 7% 1fr 2%;
+        grid-template-rows: 10% 1fr 1fr 10%;
+        grid-template-areas: 
+        '. mDWZ-m5-i . . .'
+        '. mDWZ-m5-i . mDWZ-m5-h3 .'
+        '. mDWZ-m5-i . mDWZ-m5-b .'
+        '. mDWZ-m5-i . . .';
+
     }
 
     .footer{
