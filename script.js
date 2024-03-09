@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             const loginContainer = document.querySelector('.nav-login-dropdown');
             const loginLink = document.querySelector('.nav-login');
+            const meineMuffinsLink = document.querySelector('a[href="meineMuffins.html"]');
             if (data !== 'Login') {
                 loginLink.textContent = data;
                 loginLink.href = '#';
@@ -35,5 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 logoutDropdown.appendChild(logoutLink);
                 loginContainer.appendChild(logoutDropdown);
             }
+            else {
+                // Wenn benutzer nicht eingeloggt Meine Muffins sperren
+                meineMuffinsLink.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    showAlert('Bitte melde dich an!'); 
+                });
+            }
+            
         });
 });
