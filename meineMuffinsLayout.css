@@ -40,26 +40,6 @@
 }
 
 
-
-/* Drop down der einzelnen Muffin Rezepte und Zutaten sind von Anfang versteckt (erscheinen nach klick auf Pfeil) */
-
-#muffin1__dropDown{
-    display: none;
-}
-
-#muffin2__dropDown{
-    display: none;
-}
-
-#muffin3__dropDown{
-    display: none;
-}
-
-#muffin4__dropDown{
-    display: none;
-}
-
-
 /* LAYOUT FÜR DIE VERSCHIEDENEN BILDSCHIRMGRÖßEN */
 
 @media screen and (min-width: 1280px) {

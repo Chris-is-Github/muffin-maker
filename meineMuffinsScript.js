@@ -197,6 +197,8 @@ function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
     divDropDown.append(zutaten);
     divDropDown.append(anleitung);
 
+    divDropDown.style.display = "none";
+
     section.appendChild(divDropDown);
 
     sitecontainer.appendChild(section);
