@@ -1,3 +1,4 @@
+// Funktion zum Anzeigen einer temporären Benachrichtigung auf der Webseite
 function showAlert(message) {
     const alertBox = document.createElement('div');
     alertBox.textContent = message;
@@ -14,10 +15,11 @@ function showAlert(message) {
     }, 3000);
 }
 
-
+// Event-Listener, der beim Laden des Dokuments ausgeführt wird
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/getlogged')
+    fetch('/getlogged') // Anfrage an den Server, um den Anmeldestatus zu erhalten
         .then(response => response.text())
+        // Wenn angemeldet dann wird der Name in der Navbar angezeigt
         .then(data => {
             const loginContainer = document.querySelector('.nav-login-dropdown');
             const loginLink = document.querySelector('.nav-login');

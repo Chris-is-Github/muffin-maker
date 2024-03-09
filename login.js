@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Registrierung
+    // Registrierung, holt benutzerdaten aus Form und sendet diese nach validierung an Server
     const registrationForm = document.querySelector('.form-box[action="/register"]');
 
     registrationForm.addEventListener('submit', function(event) {
@@ -10,8 +10,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('reg-password-1').value;
         const password2 = document.getElementById('reg-password-2').value;
 
+        // Überprüfung ob die Passwörter übereinstimmen
         if (password !== password2) {
             showAlert('Die Passwörter stimmen nicht überein.');
+            return;
+        }
+
+          // Überprüfung der Benutzernamenlänge und -charakter
+          if (username.length < 4 || !/[a-zA-Z]/.test(username)) {
+            showAlert('Der Benutzername muss mindestens 4 Zeichen lang sein und mindestens einen Buchstaben enthalten.');
+            return;
+        }
+
+        // Überprüfung der Passwortlänge
+        if (password.length < 8) {
+            showAlert('Das Passwort muss mindestens 8 Zeichen lang sein.');
             return;
         }
 
@@ -29,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 showAlert('Registrierung erfolgreich. Sie werden jetzt zur Homepage weitergeleitet.');
-                setTimeout(() => { window.location.href = '/home.html'; }, 3000);
+                setTimeout(() => { window.location.href = '/home.html'; }, 2000);
             } else {
                 showAlert('Registrierung fehlgeschlagen: ' + data.message);
             }
@@ -40,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Login
+    // Login, holt benutzerdaten aus Form und sendet diese an Server zum überprüfen
     const loginForm = document.querySelector('.form-box[action="/login"]');
 
     loginForm.addEventListener('submit', function(event) {
@@ -64,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 localStorage.setItem('loggedInUser', username);
                 showAlert('Erfolgreich eingeloggt! Sie werden jetzt zur Homepage weitergeleitet.');
-                setTimeout(() => { window.location.href = '/home.html'; }, 3000);
+                setTimeout(() => { window.location.href = '/home.html'; }, 2000);
             } else {
                 showAlert('Login fehlgeschlagen: ' + data.message);
             }

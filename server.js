@@ -1,40 +1,48 @@
-//Setup
-const express = require('express');
-const bodyParser = require('body-parser');
-const fs = require('fs');
-const path = require('path');
-const session = require('express-session');
-const app = express();
-const PORT = 3000;
+// Setup
+const express = require('express'); // Express Framework
+const bodyParser = require('body-parser'); // Middleware zur Analyse eingehender Anfragen
+const fs = require('fs'); // Dateisystem-Modul zum Lesen und Schreiben von Dateien
+const path = require('path'); // Modul zur Arbeit mit Dateipfaden
+const session = require('express-session'); // Middleware für Sitzungsverwaltung
+const app = express(); // Eine neue Express-Anwendung erstellen
+const PORT = 3000; // Port festlegen
 
+// Middleware zur Verarbeitung von Daten in verschiedenen Formaten
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
+
+// Statischen Inhalt aus dem aktuellen Verzeichnis bereitstellen
 app.use('/', express.static(__dirname + '/'));
+
+// Route für die Startseite
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/home.html');
 });
 
+// Server auf festgelegtem Port starten
 app.listen(PORT, () => {
     console.log(`Server läuft auf Port ${PORT}`);
 });
 
+// Session-Konfiguration
 app.use(session({
-  secret: 'muffinMaker123',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
+  secret: 'muffinMaker123', // Geheimer Schlüssel
+  resave: false, // Verhindert das Sitzungen ohne Änderungen gespeichert werden
+  saveUninitialized: true, // Speichert neue, aber nicht modifizierte Sitzungen
+  cookie: { secure: false } // HTTPS nicht erforderlich
 }));
 
 //Login//Registrierung
-let users = {};
+let users = {}; // Objekt zur Speicherung der Benutzerdaten
 try {
-    const data = fs.readFileSync('./users.json', 'utf8');
-    users = JSON.parse(data);
+    const data = fs.readFileSync('./users.json', 'utf8'); // Benutzerdaten aus Datei lesen
+    users = JSON.parse(data); // Benutzerdaten in Objekt umwandeln
 } catch (err) {
     console.error('Fehler beim Lesen der Benutzerdatei, starte mit einem leeren Objekt:', err);
 }
 
+// Route für die Registrierung
 app.post('/register', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -50,6 +58,7 @@ app.post('/register', (req, res) => {
     res.json({ success: true, message: 'Registrierung erfolgreich!' });
 });
 
+// Route für den Login
 app.post('/login', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -63,6 +72,7 @@ app.post('/login', (req, res) => {
     res.json({ success: true, message: 'Erfolgreich eingeloggt!', username: username });
 });
 
+// Route um den eingeloggten Benutzernamen zu erhalten
 app.get('/getlogged', (req, res) => {
   if (req.session.loggedin) {
       res.send(req.session.username);
@@ -71,14 +81,14 @@ app.get('/getlogged', (req, res) => {
   }
 });
 
+// Route für das Logout
 app.get('/logout', (req, res) => {
   req.session.destroy(() => {
       res.redirect('/');
   });
 });
 
-
-//Muffin Objekt
+// Funktionen zum Lesen von Dateien und Generieren von Muffin-Daten
 function getNamesFromFiles(folder, prefix) {
     return new Promise((resolve, reject) => {
       fs.readdir(`Bilder/${folder}`, (err, files) => {
@@ -106,6 +116,7 @@ function getNamesFromFiles(folder, prefix) {
     }));
   }
   
+  // Routes zur Abfrage von Muffin-, Icing- und Topping-Daten
   app.get('/muffins', async (req, res) => {
     try {
       const names = await getNamesFromFiles('Muffin', 'Muffin');
@@ -136,7 +147,7 @@ function getNamesFromFiles(folder, prefix) {
     }
   });
 
-  //Meine Muffins Speichern
+  // Route zum Hinzufügen von Muffin-Daten für eingeloggte Benutzer
   app.post('/addMuffin', (req, res) => {
     if (req.session.loggedin) {
         const { icing_id, topping_id, muffinBase_id } = req.body;
@@ -170,7 +181,7 @@ function getNamesFromFiles(folder, prefix) {
     }
 });
 
-
+// Route zum Abrufen von gespeicherten Muffin-Daten des Benutzers
 app.get('/getMyMuffins', (req, res) => {
   if (req.session.loggedin) {
       const username = req.session.username;
