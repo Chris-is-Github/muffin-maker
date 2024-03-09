@@ -5,7 +5,7 @@ body {
 }
 
 main {
-  /* height: 70vh; */
+  height: 70vh; 
 }
 
 hr {
@@ -47,6 +47,8 @@ hr {
   overflow: hidden;
   position: absolute;
   height: 100%;
+
+
 }
 
 .muffin1,
@@ -102,15 +104,22 @@ hr {
   height: 50%;
 }
 
+#real_button {
+
+  cursor: pointer;
+
+}
+
 .first-layer button,
 .second-layer button,
 .third-layer button {
   border: none;
   background-color: #efe5dc;
-  cursor: pointer;
+  
   font-family: "Merienda", cursive;
   border-radius: 20px;
 }
+
 
 .first-layer button:hover img,
 .second-layer button:hover img,
@@ -123,9 +132,11 @@ hr {
 .third-layer button:active img {
   filter: opacity(100%);
 }
-.first-layer button:active,
-.second-layer button:active,
-.third-layer button:active {
+
+
+#real_button:active
+/* .third-layer button:active  */
+{
   transform: translateY(4px);
 }
 
@@ -151,7 +162,7 @@ hr {
   border: none;
   background: none;
   color: #602437;
-
+ 
   font-family: "Merienda", cursive;
 }
 
@@ -163,6 +174,7 @@ hr {
   color: white;
   cursor: pointer;
   font-family: "Merienda", cursive;
+  
 }
 
 #safe-muffin:hover {
