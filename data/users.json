@@ -1,0 +1,32 @@
+{
+  "chris": {
+    "password": "abcdefg12",
+    "muffins": {
+      "1": {
+        "icing_id": 0,
+        "topping_id": 2,
+        "muffinBase_id": 7
+      },
+      "2": {
+        "icing_id": 2,
+        "topping_id": 1,
+        "muffinBase_id": 6
+      },
+      "3": {
+        "icing_id": 0,
+        "topping_id": 4,
+        "muffinBase_id": 6
+      }
+    }
+  },
+  "halo": {
+    "password": "halooooo",
+    "muffins": {
+      "1": {
+        "icing_id": 3,
+        "topping_id": 4,
+        "muffinBase_id": 3
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+// Initialisierung von Variablen für Muffin-, Topping- und Icing-Zahlen sowie Arrays für Daten
 let muffin_zahl = 0;
 let topping_zahl = 0;
 let icing_zahl = 0;
@@ -10,6 +11,8 @@ let icing_id;
 let topping_id;
 let muffinBase_id;
 
+
+// Fetch-Anfragen für Muffin-, Topping- und Icing-Daten
 fetch("/muffins")
   .then((response) => {
     if (!response.ok) {
@@ -19,6 +22,7 @@ fetch("/muffins")
   })
   .then((data) => {
     muffin = data.muffins;
+    //Anfangs Muffin der auf der Homepage angezeigt werden 
     document.getElementById("muffin-home").src = muffin[0].imageUrl;
     document.getElementById("text-muffin").textContent = muffin[0].name;
     txtInListeEinfuegen(muffin[0].ingredientsUrl, "muffin1zutaten--einfügen");
@@ -35,6 +39,7 @@ fetch("/toppings")
     return response.json();
   })
   .then((data) => {
+    //Anfangs Toppings der auf der Homepage angezeigt werden 
     topping = data.toppings;
     document.getElementById("topping-home").src = topping[0].imageUrl;
     document.getElementById("text-topping").textContent = topping[0].name;
@@ -52,6 +57,7 @@ fetch("/icings")
     return response.json();
   })
   .then((data) => {
+    //Anfangs Icing der auf der Homepage angezeigt werden 
     icing = data.icings;
     document.getElementById("icing-home").src = icing[0].imageUrl;
     document.getElementById("text-icing").textContent = icing[0].name;
@@ -61,8 +67,11 @@ fetch("/icings")
     showAlert("Fehler beim Fetchen der Muffin-Daten:", error);
   });
 
+
+  // Fallunterscheidung für verschiedene Buttons
 function change_muffin(button) {
   switch (button) {
+    //Button nach links gedrückt
     case 1:
       icing_zahl--;
       if (icing_zahl < 0) {
@@ -74,6 +83,7 @@ function change_muffin(button) {
       break;
 
     case 2:
+      //Button nach rechts gedrückt
       icing_zahl++;
       if (icing_zahl > icing.length - 1) {
         icing_zahl = 0;
@@ -147,6 +157,8 @@ function muffin_zutaten_change() {
   txtInListeEinfuegen(muffin[muffin_zahl].ingredientsUrl, "muffin1zutaten--einfügen");
 }
 
+
+// Funktion zum Einfügen von Texten in eine Liste
 function txtInListeEinfuegen(txtDatei, einfuegeID) {
   // Funktion fügt txt Datei in html, bei einem bestimmten Element als Liste ein
   fetch(txtDatei)
@@ -181,7 +193,7 @@ function txtInListeEinfuegen(txtDatei, einfuegeID) {
     .catch((error) => showAlert("Fehler beim Laden der Datei:", error));
 }
 
-
+// Funktion zum Speichern eines Muffins
 function saveMuffin() {
   let icing_id = icing[icing_zahl].id;
   let topping_id = topping[topping_zahl].id;

@@ -6,18 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muffin Maker</title>
+     <!-- Verweise auf externe CSS-Dateien -->
     <link rel="Stylesheet" href="./css/home.css"> </link>
     <link rel="Stylesheet" href="./css/style.css"> </link>
     <link rel="stylesheet" href="./css/meineMuffinsStyle.css">
+     <!-- Verweise auf externe JavaScript-Dateien -->
     <script src="./js/script.js"></script>
     <script src="./js/home.js"></script>
 </head>
 
 <body>
     <div class="sitecontainer">
+          <!-- Navigationsleiste -->
     <nav id="nav-bar">
         <div class="nav-home">
             <a class="logo-wrap" href="home.html"></a>
+              <!-- Navigationslinks -->
         </div>
         <a class="nav-link" href="meineMuffins.html" style="margin-left: 25px;">Meine Muffins</a>
         <a class="nav-link" href="muffinDerWoche.html">Muffin der Woche</a>
@@ -26,6 +30,7 @@
         </div>
     </nav>
 
+     <!-- Titel der Seite -->
     <div class="titel--grid seitenTitel">
         <hr>
         <h1 >Erstelle deinen eigenen Muffin</h1>
@@ -35,14 +40,16 @@
 
     <main>
         <div class="rezepte">
-            
+            <!-- Schaltfläche zum Speichern des Muffins -->
                 <button id="safe-muffin" onclick="saveMuffin()"> Speicher deinen Muffin, um das ganze Rezept zu sehen</button>
            
             <div class="dropDown" id="muffin1dropDown">
                 <div class="zutaten" id="muffin1zutaten">
                     <h3 class="zutatentitel">Zutaten</h3>
+                    <!-- Abschnitte für Zutaten -->
                     <section class="zutatenliste">
                         <p>Zutaten für <b>12</b> Muffins</p>
+                         <!-- Unterteilung nach Icing, Topping und Muffin -->
                         <h4 class="zutatenüberschrift">Icing</h4>
                         <section id="icing1zutaten--einfügen"></section>
                         <h4 class="zutatenüberschrift">Topping</h4>
@@ -64,7 +71,7 @@
         </div>
 
         <div class="muffin-maker">
-           
+           <!-- Container für die Muffinbilder -->
          
 
             <div class=" muffin-container">
@@ -84,7 +91,8 @@
 </div>
 
 
-              
+              <!-- Schaltflächen zum Ändern der Muffinzutaten -->
+
                 <div class="first-layer">
                 <button id="real_button"  class="pfeil-links-oben" onclick="change_muffin(1)"> <img src="assets/Bilder/pfeilRechts.png" alt="" class="img-pfeil-links"></button> 
                
@@ -127,6 +135,7 @@
 
     </main>
 </div>
+<!-- Fußzeile der Seite -->
     <footer class="footer">
         <p>&copy; 2024 Muffin Maker. Alle Rechte vorbehalten.</p>
     </footer>
