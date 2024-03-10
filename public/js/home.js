@@ -182,7 +182,7 @@ function txtInListeEinfuegen(txtDatei, einfuegeID) {
 }
 
 
-function safe_muffin() {
+function saveMuffin() {
   let icing_id = icing[icing_zahl].id;
   let topping_id = topping[topping_zahl].id;
   let muffinBase_id = muffin[muffin_zahl].id;
