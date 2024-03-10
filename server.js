@@ -170,7 +170,7 @@ function getNamesFromFiles(folder, prefix) {
             const muffinName = `${Object.keys(users[username].muffins).length + 1}`;
             users[username].muffins[muffinName] = { icing_id, topping_id, muffinBase_id };
 
-            fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
+            fs.writeFileSync('./data/users.json', JSON.stringify(users, null, 2));
 
             res.json({ success: true, message: 'Muffin-Daten hinzugefügt.' });
         } else {
