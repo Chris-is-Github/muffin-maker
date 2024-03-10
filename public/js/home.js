@@ -39,6 +39,7 @@ fetch("/toppings")
     return response.json();
   })
   .then((data) => {
+    //Anfangs Toppings der auf der Homepage angezeigt werden 
     topping = data.toppings;
     document.getElementById("topping-home").src = topping[0].imageUrl;
     document.getElementById("text-topping").textContent = topping[0].name;
@@ -56,6 +57,7 @@ fetch("/icings")
     return response.json();
   })
   .then((data) => {
+    //Anfangs Icing der auf der Homepage angezeigt werden 
     icing = data.icings;
     document.getElementById("icing-home").src = icing[0].imageUrl;
     document.getElementById("text-icing").textContent = icing[0].name;
@@ -69,6 +71,7 @@ fetch("/icings")
   // Fallunterscheidung für verschiedene Buttons
 function change_muffin(button) {
   switch (button) {
+    //Button nach links gedrückt
     case 1:
       icing_zahl--;
       if (icing_zahl < 0) {
@@ -80,6 +83,7 @@ function change_muffin(button) {
       break;
 
     case 2:
+      //Button nach rechts gedrückt
       icing_zahl++;
       if (icing_zahl > icing.length - 1) {
         icing_zahl = 0;
