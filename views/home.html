@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muffin Maker</title>
-    <link rel="Stylesheet" href="../public/css/home.css"> </link>
-    <link rel="Stylesheet" href="../public/css/style.css"> </link>
-    <link rel="stylesheet" href="../public/css/meineMuffinsStyle.css">
-    <script src="../public/js/script.js"></script>
-    <script src="../public/js/home.js"></script>
+    <link rel="Stylesheet" href="./css/home.css"> </link>
+    <link rel="Stylesheet" href="./css/style.css"> </link>
+    <link rel="stylesheet" href="./css/meineMuffinsStyle.css">
+    <script src="./js/script.js"></script>
+    <script src="./js/home.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
     <main>
         <div class="rezepte">
             
-                <button id="safe-muffin" onclick="safe_muffin()"> Speicher deinen Muffin, um das ganze Rezept zu sehen</button>
+                <button id="safe-muffin" onclick="saveMuffin()"> Speicher deinen Muffin, um das ganze Rezept zu sehen</button>
            
             <div class="dropDown" id="muffin1dropDown">
                 <div class="zutaten" id="muffin1zutaten">
@@ -86,9 +86,9 @@
 
               
                 <div class="first-layer">
-                <button id="real_button"  class="pfeil-links-oben" onclick="change_muffin(1)"> <img src="Bilder/pfeilRechts.png" alt="" class="img-pfeil-links"></button> 
+                <button id="real_button"  class="pfeil-links-oben" onclick="change_muffin(1)"> <img src="assets/Bilder/pfeilRechts.png" alt="" class="img-pfeil-links"></button> 
                
-                <button id="real_button" class="pfeil-rechts-oben" onclick="change_muffin(2)"> <img src="Bilder/pfeilRechts.png" alt="" class="img-pfeil-rechts"></button>
+                <button id="real_button" class="pfeil-rechts-oben" onclick="change_muffin(2)"> <img src="assets/Bilder/pfeilRechts.png" alt="" class="img-pfeil-rechts"></button>
                
                 <button disabled class="text">
                   
@@ -98,8 +98,8 @@
             </div>
 
             <div class="second-layer">
-                <button id="real_button" class="pfeil-links-mitte" onclick="change_muffin(3)"> <img src="Bilder/pfeilRechts.png" alt="" class="img-pfeil-links"></button>
-                <button id="real_button" class="pfeil-rechts-mitte" onclick="change_muffin(4)"> <img src="Bilder/pfeilRechts.png" alt="" class="img-pfeil-rechts"> </button>
+                <button id="real_button" class="pfeil-links-mitte" onclick="change_muffin(3)"> <img src="assets/Bilder/pfeilRechts.png" alt="" class="img-pfeil-links"></button>
+                <button id="real_button" class="pfeil-rechts-mitte" onclick="change_muffin(4)"> <img src="assets/Bilder/pfeilRechts.png" alt="" class="img-pfeil-rechts"> </button>
            
                 <button disabled  class="text">
                    
@@ -108,8 +108,8 @@
             </div>
             
             <div class="third-layer">
-                <button id="real_button" class="pfeil-links-unten" onclick="change_muffin(5)"> <img src="Bilder/pfeilRechts.png" alt="" class="img-pfeil-links"></button>
-                <button id="real_button" class="pfeil-rechts-unten" onclick="change_muffin(6)"> <img src="Bilder/pfeilRechts.png" alt="" class="img-pfeil-rechts"></button>
+                <button id="real_button" class="pfeil-links-unten" onclick="change_muffin(5)"> <img src="assets/Bilder/pfeilRechts.png" alt="" class="img-pfeil-links"></button>
+                <button id="real_button" class="pfeil-rechts-unten" onclick="change_muffin(6)"> <img src="assets/Bilder/pfeilRechts.png" alt="" class="img-pfeil-rechts"></button>
                 <button disabled class="text">
                    
                     <p id="text-muffin">Irgednwas</p>

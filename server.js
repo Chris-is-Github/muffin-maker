@@ -13,13 +13,13 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 // Statischen Inhalt aus dem aktuellen Verzeichnis bereitstellen
-app.use('/', express.static(__dirname + '/'));
+app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Route für die Startseite
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/home.html');
+  res.sendFile(path.join(__dirname, 'views', 'home.html'));
 });
-
 // Server auf festgelegtem Port starten
 app.listen(PORT, () => {
     console.log(`Server läuft auf Port ${PORT}`);
@@ -36,7 +36,7 @@ app.use(session({
 //Login//Registrierung
 let users = {}; // Objekt zur Speicherung der Benutzerdaten
 try {
-    const data = fs.readFileSync('./users.json', 'utf8'); // Benutzerdaten aus Datei lesen
+    const data = fs.readFileSync('./data/users.json', 'utf8'); // Benutzerdaten aus Datei lesen
     users = JSON.parse(data); // Benutzerdaten in Objekt umwandeln
 } catch (err) {
     console.error('Fehler beim Lesen der Benutzerdatei, starte mit einem leeren Objekt:', err);
@@ -51,7 +51,7 @@ app.post('/register', (req, res) => {
     }
 
     users[username] = { password };
-    fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
+    fs.writeFileSync('./data/users.json', JSON.stringify(users, null, 2));
     req.session.loggedin = true;
     req.session.username = username;
 
@@ -91,7 +91,7 @@ app.get('/logout', (req, res) => {
 // Funktionen zum Lesen von Dateien und Generieren von Muffin-Daten
 function getNamesFromFiles(folder, prefix) {
     return new Promise((resolve, reject) => {
-      fs.readdir(`Bilder/${folder}`, (err, files) => {
+      fs.readdir(`public/assets/Bilder/${folder}`, (err, files) => {
         if (err) {
           reject(err);
           return;
@@ -109,10 +109,10 @@ function getNamesFromFiles(folder, prefix) {
   function generateData(names, folder, prefix) {
     return names.map((name, index) => ({
       id: index,
-      imageUrl: `Bilder/${folder}/${prefix}_${name}.png`,
+      imageUrl: `assets/Bilder/${folder}/${prefix}_${name}.png`,
       name: `${name} ${prefix}`,
-      recipeUrl: `Rezepte/${folder}/${prefix}_${name}_Anleitung.txt`,
-      ingredientsUrl: `Rezepte/${folder}/${prefix}_${name}_Zutaten.txt`
+      recipeUrl: `assets/Rezepte/${folder}/${prefix}_${name}_Anleitung.txt`,
+      ingredientsUrl: `assets/Rezepte/${folder}/${prefix}_${name}_Zutaten.txt`
     }));
   }
   

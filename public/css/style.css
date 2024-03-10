@@ -71,7 +71,7 @@ hr {
     display: inline-block;
     width: 80px;
     height: 50px;
-    background: url('Bilder/Logo/Logo.png') no-repeat center center;
+    background: url('/assets/Bilder/Logo/Logo.png') no-repeat center center;
     background-size: 85px 85px;
     transition: background-size 0.3s ease-in-out;
 }

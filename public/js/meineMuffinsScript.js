@@ -111,7 +111,7 @@ function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
     const imgPfeil = document.createElement('img');
     imgPfeil.id = `pfeilBild${idSuffix}`;
     imgPfeil.className = 'pfeilButton__bild--rechts';
-    imgPfeil.src = '../Bilder/pfeilRechts.png';
+    imgPfeil.src = 'assets/Bilder/pfeilRechts.png';
     imgPfeil.alt = 'Pfeil Button';
     button.appendChild(imgPfeil);
 
