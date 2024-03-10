@@ -18,5 +18,15 @@
         "muffinBase_id": 6
       }
     }
+  },
+  "halo": {
+    "password": "halooooo",
+    "muffins": {
+      "1": {
+        "icing_id": 3,
+        "topping_id": 4,
+        "muffinBase_id": 3
+      }
+    }
   }
 }

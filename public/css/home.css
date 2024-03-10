@@ -24,8 +24,7 @@ hr {
   width: 125vh;
   padding-top:75px;
   display: block;
-  /*   margin-right: auto;
-  margin-left: auto; */
+
 
   margin-left: 2%;
 }
@@ -35,10 +34,10 @@ hr {
   height: 500px;
 
   position: relative;
-  /*   margin: auto; */
+
 
   left: 18%;
-  /* transform: translateX(-50%); */
+
 }
 
 .img-muffin,
@@ -135,7 +134,6 @@ hr {
 
 
 #real_button:active
-/* .third-layer button:active  */
 {
   transform: translateY(4px);
 }
@@ -187,8 +185,7 @@ hr {
   margin-left: 10%;
 }
 
-.zutatenliste {
-}
+
 
 .rezepte {
   width: 25%;
