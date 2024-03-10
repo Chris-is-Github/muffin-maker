@@ -2,6 +2,8 @@ let muffins = [];
 let icings = [];
 let toppings = [];
 
+
+// Lädt eine Textdatei und fügt diese als in liste in ein Html element ein
 function txtInListeEinfuegen(txtDatei, einfuegeID) {
     // Funktion fügt txt Datei in html, bei einem bestimmten Element als Liste ein
     fetch(txtDatei)
@@ -35,6 +37,8 @@ function txtInListeEinfuegen(txtDatei, einfuegeID) {
         .catch(error => console.error('Fehler beim Laden der Datei:', error));
 }
 
+
+// gibt dem Knopf bei den gespeicherten Muffins die gewünschte funktionalität zum ausklappen der Muffins
 function buttonListener(buttonID, bildID, muffinDropDownID){
     const myButton = document.getElementById(buttonID);
     myButton.addEventListener('click', function() {
@@ -63,6 +67,8 @@ function buttonListener(buttonID, bildID, muffinDropDownID){
     });
 }
 
+
+// Kreiert nach eingabeparametern die gespeicherten muffins auf der seite
 function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
     const sitecontainer = document.getElementById("sitecontainer");
     const section = document.createElement('section');
@@ -216,7 +222,7 @@ function createMuffinSection(idSuffix, muffinID, icingID, toppingID) {
 }
 
 
-
+// Holt sich die Muffindaten und gespeicherten Muffins des Users
 async function fetchData() {
     try {
         const muffinResponse = await fetch('/muffins');

@@ -1,3 +1,4 @@
+// Lädt eine Textdatei und fügt diese als in liste in ein Html element ein
 function txtInListeEinfuegen(txtDatei, einfuegeID) {
     // Funktion fügt txt Datei in html, bei einem bestimmten Element als Liste ein
     fetch(txtDatei)
