@@ -4,6 +4,7 @@ const bodyParser = require('body-parser'); // Middleware zur Analyse eingehender
 const fs = require('fs'); // Dateisystem-Modul zum Lesen und Schreiben von Dateien
 const path = require('path'); // Modul zur Arbeit mit Dateipfaden
 const session = require('express-session'); // Middleware für Sitzungsverwaltung
+const bcrypt = require('bcrypt'); // Passwort Hashen
 const app = express(); // Eine neue Express-Anwendung erstellen
 const PORT = 3000; // Port festlegen
 
@@ -43,14 +44,15 @@ try {
 }
 
 // Route für die Registrierung
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     if (users[username]) {
         return res.json({ success: false, message: 'Benutzername bereits vergeben.' });
     }
 
-    users[username] = { password };
+    const hashedPassword = await bcrypt.hash(password, 10);
+    users[username] = { password: hashedPassword };
     fs.writeFileSync('./data/users.json', JSON.stringify(users, null, 2));
     req.session.loggedin = true;
     req.session.username = username;
@@ -59,12 +61,12 @@ app.post('/register', (req, res) => {
 });
 
 // Route für den Login
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    if (!users[username] || users[username].password !== password) {
-        return res.json({ success: false, message: 'Benutzername oder Passwort ungültig.' });
-    }
+    if (!users[username] || !(await bcrypt.compare(password, users[username].password))) {
+      return res.json({ success: false, message: 'Benutzername oder Passwort ungültig.' });
+  }
 
     req.session.loggedin = true;
     req.session.username = username;
