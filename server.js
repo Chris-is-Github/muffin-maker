@@ -4,7 +4,7 @@ const bodyParser = require('body-parser'); // Middleware zur Analyse eingehender
 const fs = require('fs'); // Dateisystem-Modul zum Lesen und Schreiben von Dateien
 const path = require('path'); // Modul zur Arbeit mit Dateipfaden
 const session = require('express-session'); // Middleware für Sitzungsverwaltung
-const bcrypt = require('bcrypt'); // Passwort Hashen
+const bcrypt = require('bcryptjs'); // Passwort Hashen
 const app = express(); // Eine neue Express-Anwendung erstellen
 const PORT = 3000; // Port festlegen
 
@@ -43,11 +43,17 @@ try {
     console.error('Fehler beim Lesen der Benutzerdatei, starte mit einem leeren Objekt:', err);
 }
 
+// Funktion zum prüfen ob ein nutzername schon existiert
+function usernameExists(username) {
+  const usernameLowerCase = username.toLowerCase();
+  return Object.keys(users).some((existingUsername) => existingUsername.toLowerCase() === usernameLowerCase);
+}
+
 // Route für die Registrierung
 app.post('/register', async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    if (users[username]) {
+    if (usernameExists(username)) {
         return res.json({ success: false, message: 'Benutzername bereits vergeben.' });
     }
 
@@ -62,16 +68,18 @@ app.post('/register', async (req, res) => {
 
 // Route für den Login
 app.post('/login', async (req, res) => {
-    const username = req.body.username;
+    const usernameInput = req.body.username;
     const password = req.body.password;
-    if (!users[username] || !(await bcrypt.compare(password, users[username].password))) {
+
+    const usernameKey = Object.keys(users).find(username => username.toLowerCase() === usernameInput.toLowerCase());
+    if (!usernameKey || !(await bcrypt.compare(password, users[usernameKey].password))) {
       return res.json({ success: false, message: 'Benutzername oder Passwort ungültig.' });
   }
 
     req.session.loggedin = true;
-    req.session.username = username;
+    req.session.username = usernameKey;
 
-    res.json({ success: true, message: 'Erfolgreich eingeloggt!', username: username });
+    res.json({ success: true, message: 'Erfolgreich eingeloggt!', username: usernameKey });
 });
 
 // Route um den eingeloggten Benutzernamen zu erhalten
