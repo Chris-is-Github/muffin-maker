@@ -4,7 +4,7 @@ const bodyParser = require('body-parser'); // Middleware zur Analyse eingehender
 const fs = require('fs'); // Dateisystem-Modul zum Lesen und Schreiben von Dateien
 const path = require('path'); // Modul zur Arbeit mit Dateipfaden
 const session = require('express-session'); // Middleware für Sitzungsverwaltung
-const bcrypt = require('bcryptjs'); // Passwort Hashen
+const bcrypt = require('bcrypt'); // Passwort Hashen
 const app = express(); // Eine neue Express-Anwendung erstellen
 const PORT = 3000; // Port festlegen
 
